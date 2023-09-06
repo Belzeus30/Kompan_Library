@@ -19,6 +19,7 @@ h1 {
 }
 
 .topsearch {
+    gap:1rem;
     display: flex;
     justify-content: flex-end; /* Align search bar to the right */
     align-items: center;
