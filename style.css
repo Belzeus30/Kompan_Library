@@ -37,16 +37,16 @@ h1 {
 /* Style the book grid with padding */
 .bookgrid {
     background-color: #FEAA98; /* Use the new color here */
-    padding: 20px; /* Add padding to the bookgrid */
+    padding: 1rem; /* Add padding to the bookgrid */
     display: flex;
     flex-wrap: wrap;
-    gap: 30px; /* Increase the gap between the books */
-    margin: 20px;
+    gap: 1.5rem; /* Increase the gap between the books */
+    margin: 1.2rem;
 }
 
 .book {
     background-color: white;
-    padding: 10px;
+    padding: .5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: left; /* Align text to the left */
@@ -61,7 +61,7 @@ h1 {
 .book img {
     max-width: 100%; /* Set image width to 100% of the container */
     height: auto;
-    margin-bottom: 10px; /* Add margin to create space under the image */
+    margin-bottom: 1rem; /* Add margin to create space under the image */
 }
 
 /* Style the text color to black */
