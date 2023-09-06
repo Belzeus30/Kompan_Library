@@ -1,0 +1,98 @@
+/* Reset some default styles */
+html, body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color and font family to the entire page */
+body {
+    background-color: #f0f0f0;
+}
+
+/* Style the header section */
+div {
+    background-color: #FEAA98; /* Use the new color here */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style the search bar and title */
+h1 {
+    margin-bottom: 10px;
+}
+
+.topsearch {
+    display: flex;
+    justify-content: flex-end; /* Align search bar to the right */
+    align-items: center;
+    padding: 10px; /* Add padding to the topsearch container */
+}
+
+.search {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: white; /* Set the background color to white */
+    margin-right: 20px; /* Add some margin for separation */
+}
+
+/* Style the book grid */
+.bookgrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increase the gap between the books */
+    margin: 20px;
+}
+
+.book {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left; /* Align text to the left */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the top */
+    flex-basis: calc(33.33% - 20px); /* Three books per row with gap */
+    max-width: calc(33.33% - 20px); /* Adjust based on your desired layout */
+    box-sizing: border-box;
+}
+
+.book img {
+    max-width: 50%; /* Set image width to 50% */
+    height: auto;
+    margin-bottom: 10px; /* Add margin to create space under the image */
+}
+
+/* Style the text color to black */
+.book .book-info p {
+    color: black;
+    margin-right: 10px; /* Add space between image and text */
+}
+
+/* Style the book description */
+.book .book-description {
+    flex-grow: 1; /* Allow the description to take up remaining space */
+}
+
+/* Style the description text */
+.book .book-description p {
+    color: black;
+    margin: 5px 0; /* Add space between description paragraphs */
+}
+
+/* Add some hover effect to the books */
+.book:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .book {
+        flex-basis: calc(50% - 20px); /* Two books per row with gap */
+        max-width: calc(50% - 20px);
+    }
+}
