@@ -3,12 +3,10 @@ html, body, h1, p {
     margin: 0;
     padding: 0;
 }
-
 /* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
 }
-
 /* Style the search bar and title */
 h1 {
     margin-bottom: 1rem;
@@ -17,7 +15,6 @@ h1 {
     padding: 10px;
     text-align: center;
 }
-
 .topsearch {
     gap:1rem;
     display: flex;
@@ -25,7 +22,6 @@ h1 {
     align-items: center;
     padding: 10px; /* Add padding to the topsearch container */
 }
-
 .search {
     padding: 5px;
     border: 1px solid #ccc;
@@ -44,7 +40,6 @@ h1 {
     gap: 1.5rem; /* Increase the gap between the books */
     margin: 1.2rem;
 }
-
 .book {
     background-color: white;
     padding: .5rem;
@@ -59,27 +54,23 @@ h1 {
     box-sizing: border-box;
     position: relative; /* Add relative positioning for the footer */
 }
-
 .book img {
     max-width: 100%; /* Set image width to 100% of the container */
     height: auto;
     margin-bottom: 1rem; /* Add margin to create space under the image */
     padding-right:1rem;
 }
-
 .book .book-info {
     display: flex; /* Display the image and details side by side */
     align-items: center; /* Vertically center align items */
     margin-bottom: 1rem; /* Add margin to create space between image and details */
 }
-
 .book .book-info h3 {
     margin-bottom: .7rem;
 }
 .book .book-info p {
     margin-bottom: .7rem; /* Add margin between paragraphs in book details */
 }
-
 .book .book-footer {
     position: absolute; /* Position the footer at the bottom */
     bottom: 5px;
@@ -87,13 +78,11 @@ h1 {
     font-size: 12px;
     color: gray;
 }
-
 /* Add some hover effect to the books */
 .book:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
-
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .book {
@@ -101,13 +90,11 @@ h1 {
         max-width: calc(50% - 20px);
     }
 }
-
 .filter{
     color:black;
     width: 5rem;
     height:1.5rem;
 }
-
 .filters-content{
         display: none;
         position: relative;
@@ -115,8 +102,7 @@ h1 {
         max-width: 10rem;
         border: 1px solid black;
         overflow: hidden;
-        z-index:1;
-        
+        z-index:1; 
 }
 .filters-content button {
     color: black;
@@ -133,8 +119,6 @@ h1 {
         height: 2rem;
         text-align: center;
         padding: 0.5rem; /* Adjust padding as needed */
-
-    
 }
 .filterbtn:hover{
     cursor: pointer;
@@ -144,7 +128,6 @@ h1 {
 .filterbtn:active{
     opacity:0.7;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -156,7 +139,6 @@ h1 {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
 }
-
 .modal-content {
     display: flex;
     align-items: center;
@@ -168,7 +150,6 @@ h1 {
     background-color: transparent;
     position: relative;
 }
-
 .close {
     position: absolute;
     top: 10px;
@@ -178,7 +159,6 @@ h1 {
     color: black;
     z-index: 2;
 }
-
 /* Styles for the enlarged book content */
 .enlarged-book {
     max-width: 100%; /* Enlarge to cover the entire modal */
