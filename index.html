@@ -14,86 +14,154 @@
         <h1>Kompan Library</h1>
     </div>
     <div class="topsearch">
-        <p>Filter</p>
-        <input class="search" placeholder="Search">
+        <button class="filter" onclick="myFunction()">
+            Filters
+        </button>
+        <div id="Filters" class="filters-content">
+            <button class="filterbtn" data-category="all" onclick="activeFunction();filterSelection('all')">No Filters</button>
+            <button class="filterbtn" data-category="IT" onclick="activeFunction();filterSelection('it')">IT</button>
+            <button class="filterbtn" data-category="ECO" onclick="activeFunction();filterSelection('eco')">Economics</button>
+            <button class="filterbtn" onclick="activeFunction();filterSelection('hr')">HR</button>
+            <button class="filterbtn" onclick="activeFunction();filterSelection('laws')">Laws</button>
+        </div>
+
+        <input class="search" placeholder="Search" onkeyup="filterFunction()">
     </div>
     <div class="bookgrid"><!--Books place-->
-        <div class="book">
+        <div class="book" data-category="IT">
             <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
+                <img src="testbook1.png" alt="Book 1">
+                <div class="book-details">
+                    <h3>Html&Css</h3>
+                    <p>Author: Tomas A. Powell</p>
+                    <p>State: Půjčená</p>
+                    <p>Rating: ★★★★☆</p>
+                </div>
             </div>
             <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-        
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
-            </div>
-            <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-            </div>
-        
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
-            </div>
-            <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-            </div>
-        
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
-            </div>
-            <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-            </div>
-        
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
-            </div>
-            <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-            </div>
-        
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png">
-                <p>lorem ipsum</p>
-            </div>
-            <div class="book-description">
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-                <p>lorem ipsum</p>
-            </div>
-        
+            <p class="book-footer">More info about the book</p>
         </div>
         
+            
+            <div class="book" data-category="ECO">
+                <div class="book-info">
+                    <img src="testbook1.png" alt="Book 1">
+                    <div class="book-details">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>State: State Name</p>
+                        <p>Rating: ★★★★☆</p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sed do eiusmod empor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <p class="book-footer">More info about the book</p>
+            </div>
+            <div class="book">
+                <div class="book-info">
+                    <img src="testbook1.png" alt="Book 1">
+                    <div class="book-details">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>State: State Name</p>
+                        <p>Rating: ★★★★☆</p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <p class="book-footer">More info about the book</p>
+            </div>
+            <div class="book">
+                <div class="book-info">
+                    <img src="testbook1.png" alt="Book 1">
+                    <div class="book-details">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>State: State Name</p>
+                        <p>Rating: ★★★★☆</p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <p class="book-footer">More info about the book</p>
+            </div>
+            <div class="book">
+                <div class="book-info">
+                    <img src="testbook1.png" alt="Book 1">
+                    <div class="book-details">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>State: State Name</p>
+                        <p>Rating: ★★★★☆</p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <p class="book-footer">More info about the book</p>
+            </div>
+            <div class="book">
+                <div class="book-info">
+                    <img src="testbook1.png" alt="Book 1">
+                    <div class="book-details">
+                        <h3>Book Title</h3>
+                        <p>Author: Author Name</p>
+                        <p>State: State Name</p>
+                        <p>Rating: ★★★★☆</p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <p class="book-footer">More info about the book</p>
+            </div>
+        </div>
+
 
 
     </div>
 </body>
+<script>
+    function myFunction() {
+        document.getElementById("Filters").classList.toggle("show");
+    }
+    function showCategory(category) {
+        const books = document.querySelectorAll('.book');
+        books.forEach(book => {
+            const bookCategory = book.getAttribute('data-category');
+            if (bookCategory === category || category === 'all') {
+                book.style.display = 'block'; // Show books of the selected category or all books if 'all' is selected
+            } else {
+                book.style.display = 'none'; // Hide other books
+            }
+        });
+    }
+    
+    // Event listener for filter buttons
+    const filterButtons = document.querySelectorAll('.filterbtn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            // Remove the 'active' class from all filter buttons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+    
+            const category = e.target.dataset.category; // Get the category from data-category attribute
+            e.target.classList.add('active'); // Add 'active' class to the clicked filter button
+            showCategory(category);
+        });
+    });
+</script>
 
 </html>
