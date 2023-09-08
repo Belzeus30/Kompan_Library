@@ -145,26 +145,27 @@
 
             </div>
         </div>
-        
+        <button id="reserveButton">Reserve</button>
         <div id="reservationPopup" class="popup">
             <div class="popup-content">
                 <span class="popup-close" id="closePopup">×</span>
                 <h2>Reservation Form</h2>
-                <form id="reservationForm" action="sendEmail.php" method="post" >
-                    <label for="name">Name:</label><br>
+                <form id="reservationForm">
+                    <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required><br>
-                    <label for="phone">Phone:</label><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="phone">Phone:</label>
                     <input type="tel" id="phone" name="phone" required><br>
-                    <label for="date">Pick a Date:</label><br>
-                    <input type="date" id="date" name="date" required><br><br>
-                    <input type="submit" value="Send">
-                    <input type="reset" value="Reset">
+                    <label for="date">Pick a Date:</label>
+                    <input type="date" id="date" name="date" required><br>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 
-</body>
+vg</body>
 <script src="script.js"></script>
 
 </html>

@@ -1,3 +1,10 @@
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .book {
+        flex-basis: calc(50% - 20px); /* Two books per row with gap */
+        max-width: calc(50% - 20px);
+    }
+}
 /* Reset some default styles */
 html, body, h1, p {
     margin: 0;
@@ -84,13 +91,7 @@ h1 {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    .book {
-        flex-basis: calc(50% - 20px); /* Two books per row with gap */
-        max-width: calc(50% - 20px);
-    }
-}
+
 .filter{
     color:black;
     width: 5rem;
@@ -107,7 +108,7 @@ h1 {
 .filters-content button {
     color: black;
     padding: 8px ;
-    display: block;
+    display:block;
 }
 .show{
     display:block;
