@@ -1,134 +1,191 @@
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
     .book {
-        flex-basis: calc(50% - 20px); /* Two books per row with gap */
+        flex-basis: calc(50% - 20px);
+        /* Two books per row with gap */
         max-width: calc(50% - 20px);
     }
 }
+
 /* Reset some default styles */
-html, body, h1, p {
+html,
+body,
+h1,
+p {
     margin: 0;
     padding: 0;
 }
+
 /* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
 }
+
 /* Style the search bar and title */
 h1 {
     margin-bottom: 1rem;
-    background-color: #E60023; /* Use the new color here */
+    background-color: #E60023;
+    /* Use the new color here */
     color: white;
     padding: 10px;
     text-align: center;
     font-family: "VAG Rounded Std";
 }
+
 .topsearch {
-    gap:1rem;
+    gap: 1rem;
     display: flex;
-    justify-content: flex-end; /* Align search bar to the right */
+    justify-content: flex-end;
+    /* Align search bar to the right */
     align-items: center;
-    padding: 10px; /* Add padding to the topsearch container */
+    padding: 10px;
+    /* Add padding to the topsearch container */
 }
+
 .search {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
-    background-color: white; /* Set the background color to white */
-    margin-right: 20px; /* Add some margin for separation */
+    background-color: white;
+    /* Set the background color to white */
+    margin-right: 20px;
+    /* Add some margin for separation */
 }
 
 /* Style the book grid with padding */
 .bookgrid {
-    background-color: #E60023; /* Use the new color here */
-    padding: 1rem; /* Add padding to the bookgrid */
+    background-color: #E60023;
+    /* Use the new color here */
+    padding: 1rem;
+    /* Add padding to the bookgrid */
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem; /* Increase the gap between the books */
+    gap: 1.5rem;
+    /* Increase the gap between the books */
     margin: 1.2rem;
 }
+
 .book {
     background-color: white;
     padding: .5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: left; /* Align text to the left */
+    text-align: left;
+    /* Align text to the left */
     display: flex;
-    flex-direction: column; /* Display content in a column */
-    align-items: flex-start; /* Align items to the top */
-    flex-basis: calc(33.33% - 20px); /* Three books per row with gap */
-    max-width: calc(33.33% - 20px); /* Three books per row with gap */
+    flex-direction: column;
+    /* Display content in a column */
+    align-items: flex-start;
+    /* Align items to the top */
+    flex-basis: calc(33.33% - 20px);
+    /* Three books per row with gap */
+    max-width: calc(33.33% - 20px);
+    /* Three books per row with gap */
     box-sizing: border-box;
-    position: relative; /* Add relative positioning for the footer */
+    position: relative;
+    /* Add relative positioning for the footer */
 }
+
 .book img {
-    max-width: 100%; /* Set image width to 100% of the container */
+    max-width: 100%;
+    /* Set image width to 100% of the container */
     height: auto;
-    margin-bottom: 1rem; /* Add margin to create space under the image */
-    padding-right:1rem;
+    margin-bottom: 1rem;
+    /* Add margin to create space under the image */
+    padding-right: 1rem;
 }
+
 .book .book-info {
-    display: flex; /* Display the image and details side by side */
-    align-items: center; /* Vertically center align items */
-    margin-bottom: 1rem; /* Add margin to create space between image and details */
+    display: flex;
+    /* Display the image and details side by side */
+    align-items: center;
+    /* Vertically center align items */
+    margin-bottom: 1rem;
+    /* Add margin to create space between image and details */
 }
+
 .book .book-info h3 {
     margin-bottom: .7rem;
 }
+
 .book .book-info p {
-    margin-bottom: .7rem; /* Add margin between paragraphs in book details */
+    margin-bottom: .7rem;
+    /* Add margin between paragraphs in book details */
 }
+
 .book .book-footer {
-    position: absolute; /* Position the footer at the bottom */
+    position: absolute;
+    /* Position the footer at the bottom */
     bottom: 5px;
     right: 5px;
     font-size: 12px;
     color: gray;
 }
+
 /* Add some hover effect to the books */
 .book:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
 
-.filter{
-    color:black;
-    width: 5rem;
-    height:1.5rem;
+.filter {
+    color: black;
+    width: 6rem;
+    height: 2rem;
+    border: 1.5px solid black;
+    background-color: #BFBFBF;
+    border-radius:10px ;
+
 }
-.filters-content{
-        display: none;
-        position:fixed;
-        max-width: 10rem;
-        border: 1px solid black;
-        overflow: hidden;
-        z-index:1; 
+.filter:hover{
+    opacity:0.7;
 }
+.filter:active{
+    opacity:0.2;
+}
+
+.filters-content {
+    border-radius: 10px;
+    
+    display: none;
+    position: fixed;
+    max-width: 10rem;
+    border: 1px solid black;
+    overflow: hidden;
+    z-index: 1;
+}
+
 .filters-content button {
     color: black;
-    padding: 8px ;
-    display:block;
+    padding: 8px;
+    display: block;
 }
-.show{
-    display:block;
+
+.show {
+    display: block;
 }
+
 .filterbtn {
-    
-        border: 1px solid;
-        width: 6rem;
-        height: 2rem;
-        text-align: center;
-        padding: 0.5rem; /* Adjust padding as needed */
+
+    border: 1px solid;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0.5rem;
+    /* Adjust padding as needed */
 }
-.filterbtn:hover{
+
+.filterbtn:hover {
     cursor: pointer;
     background-color: #a7a7a7;
 
 }
-.filterbtn:active{
+
+.filterbtn:active {
     background-color: #BFBFBF;
 }
+
 .modal {
     display: none;
     position: fixed;
@@ -140,6 +197,7 @@ h1 {
     overflow: none;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
 .modal-content {
     display: flex;
     align-items: center;
@@ -150,10 +208,13 @@ h1 {
     text-align: center;
     position: relative;
 }
+
 /* Styles for the enlarged book content */
 .enlarged-book {
-    max-width: 100%; /* Enlarge to cover the entire modal */
-    max-height: 100%; /* Enlarge to cover the entire modal */
+    max-width: 100%;
+    /* Enlarge to cover the entire modal */
+    max-height: 100%;
+    /* Enlarge to cover the entire modal */
     width: 45rem;
     height: 23rem;
     border: none;
@@ -165,38 +226,47 @@ h1 {
     align-items: flex-start;
     padding: 20px;
     border-radius: 10px;
-    position: relative; /* Position relative for absolute positioning of the button */
+    position: relative;
+    /* Position relative for absolute positioning of the button */
 }
 
 /* Styles for the book info section */
 .enlarged-book .book-info {
     display: flex;
     text-align: center;
-    gap: 10rem; /* Adjust as needed for the desired gap between the image and text */
+    gap: 10rem;
+    /* Adjust as needed for the desired gap between the image and text */
 }
-.enlarged-book .book-info h3{
+
+.enlarged-book .book-info h3 {
     margin-bottom: 2rem;
 }
-.enlarged-book .book-info p{
+
+.enlarged-book .book-info p {
     margin-bottom: 2rem;
 }
 
 /* Styles for the book details */
 .enlarged-book .book-details {
-    flex: 1; /* Allow the text to take up available space */
+    flex: 1;
+    /* Allow the text to take up available space */
 }
 
 /* Styles for the image */
 .enlarged-book .book-info img {
-    max-width: 200px; /* Adjust the maximum width as needed */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 200px;
+    /* Adjust the maximum width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
 /* Styles for the reservation button */
 .enlarged-book .reservation-button {
     position: absolute;
-    bottom: .5rem; /* Adjust as needed for the desired vertical position */
-    right: .5rem; /* Adjust as needed for the desired horizontal position */
+    bottom: .5rem;
+    /* Adjust as needed for the desired vertical position */
+    right: .5rem;
+    /* Adjust as needed for the desired horizontal position */
     background-color: #007BFF;
     color: white;
     padding: 10px 20px;
@@ -214,12 +284,16 @@ h1 {
 .close {
     position: absolute;
     top: 10px;
-    right: 10px; /* Adjust the right position to fit inside the white square */
+    right: 10px;
+    /* Adjust the right position to fit inside the white square */
     font-size: 30px;
     cursor: pointer;
-    color: white; /* Change the color for visibility */
-    z-index: 2; /* Add z-index to keep the close button above the content */
+    color: white;
+    /* Change the color for visibility */
+    z-index: 2;
+    /* Add z-index to keep the close button above the content */
 }
+
 .popup {
     display: none;
     position: fixed;
@@ -270,6 +344,7 @@ input[type="date"] {
     border-radius: 5px;
     font-size: 16px;
 }
+
 input[type="submit"] {
     background-color: #007BFF;
     color: white;

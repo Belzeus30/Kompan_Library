@@ -1,11 +1,24 @@
 //filter dropdown
 //
-function myFunction() {
-    document.getElementById("Filters").classList.toggle("show");
+
+function toggleFilters() {
+    const popup = document.getElementById("Filters");
+    popup.classList.toggle("show");
+    filter.style.border-bottom-right-radius=='0';
 }
-//filter clicking
-//
-function showCategory(category) {
+
+function handleFilterClick(category) {
+    // Remove the 'active' class from all filter buttons
+    const filterButtons = document.querySelectorAll('.filterbtn');
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Add 'active' class to the clicked filter button
+    const clickedButton = document.querySelector(`[data-category="${category}"]`);
+    clickedButton.classList.add('active');
+
+    // Show/hide books based on the selected category
     const books = document.querySelectorAll('.book');
     books.forEach(book => {
         const bookCategory = book.getAttribute('data-category');
@@ -17,19 +30,9 @@ function showCategory(category) {
     });
 }
 
-// Event listener for filter buttons
-const filterButtons = document.querySelectorAll('.filterbtn');
-filterButtons.forEach(button => {
-    button.addEventListener('click', function (e) {
-        // Remove the 'active' class from all filter buttons
-        filterButtons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        const category = e.target.dataset.category; // Get the category from data-category attribute
-        e.target.classList.add('active'); // Add 'active' class to the clicked filter button
-        showCategory(category);
-    });
+// Prevent the form from submitting and reloading the page
+document.getElementById("filterForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 });
 //Modal enlarged book
 //

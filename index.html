@@ -14,19 +14,16 @@
         <h1>Kompan Library</h1>
     </div>
     <div class="topsearch">
-        <button class="filter" onclick="myFunction()">
-            Filters
-        </button>
-        <div id="Filters" class="filters-content">
-            <button class="filterbtn" data-category="all" onclick="activeFunction();filterSelection('all')">No
-                Filters</button>
-            <button class="filterbtn" data-category="IT" onclick="activeFunction();filterSelection('it')">IT</button>
-            <button class="filterbtn" data-category="ECO"
-                onclick="activeFunction();filterSelection('eco')">Economics</button>
-            <button class="filterbtn" data-category="HR" onclick="activeFunction();filterSelection('hr')">HR</button>
-            <button class="filterbtn" data-category="LAW"
-                onclick="activeFunction();filterSelection('laws')">Laws</button>
-        </div>
+        <form id="filterForm"> <!-- You can specify the form action -->
+            <button class="filter" onclick="toggleFilters()">Filters</button>
+            <div id="Filters" class="filters-content">
+                <button class="filterbtn" data-category="all" onclick="handleFilterClick('all')">No Filters</button>
+                <button class="filterbtn" data-category="IT" onclick="handleFilterClick('IT')">IT</button>
+                <button class="filterbtn" data-category="ECO" onclick="handleFilterClick('ECO')">Economics</button>
+                <button class="filterbtn" data-category="HR" onclick="handleFilterClick('HR')">HR</button>
+                <button class="filterbtn" data-category="LAW" onclick="handleFilterClick('LAW')">Laws</button>
+            </div>
+        </form>
 
         <input class="search" placeholder="Search" onkeyup="filterFunction()">
     </div>
@@ -165,7 +162,7 @@
         </div>
     </div>
 
-vg</body>
+</body>
 <script src="script.js"></script>
 
 </html>
