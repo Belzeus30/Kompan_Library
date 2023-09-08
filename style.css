@@ -10,8 +10,8 @@ body {
 /* Style the search bar and title */
 h1 {
     margin-bottom: 1rem;
-    background-color: #FEAA98; /* Use the new color here */
-    color: black;
+    background-color: #E60023; /* Use the new color here */
+    color: white;
     padding: 10px;
     text-align: center;
 }
@@ -98,7 +98,6 @@ h1 {
 .filters-content{
         display: none;
         position: relative;
-        background-color: #FEAA98;
         max-width: 10rem;
         border: 1px solid black;
         overflow: hidden;
@@ -106,7 +105,7 @@ h1 {
 }
 .filters-content button {
     color: black;
-    padding: 12px 12px;
+    padding: 8px ;
     display: block;
 }
 .show{
@@ -122,7 +121,7 @@ h1 {
 }
 .filterbtn:hover{
     cursor: pointer;
-    background-color: bisque;
+    background-color: #a7a7a7;
 
 }
 .filterbtn:active{
@@ -167,6 +166,25 @@ h1 {
     position: relative; /* Add this to create a relative positioning context */
 }
 
+/* Reservation button */
+.reservation-button {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed for desired vertical position */
+    right: 10px; /* Adjust as needed for desired horizontal position */
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+/* Add hover effect to the reservation button */
+.enlarged-book .reservation-button:hover {
+    opacity: 0.8;
+}
+
 .close {
     position: absolute;
     top: 10px;
@@ -175,4 +193,80 @@ h1 {
     cursor: pointer;
     color: white; /* Change the color for visibility */
     z-index: 2; /* Add z-index to keep the close button above the content */
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.popup-content {
+    background-color: white;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* inputs css*/
+/* Style the submit button */
+label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Apply styles to text inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the reset button */
+input[type="reset"] {
+    background-color: #DC3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Add hover effect to buttons */
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    opacity: 0.8;
 }

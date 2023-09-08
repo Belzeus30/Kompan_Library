@@ -43,6 +43,10 @@ const books = document.querySelectorAll(".book");
 // Get a reference to the modal content
 const modalContent = document.getElementById("modalContent");
 
+// Get a reference to the reservation popup
+const reservationPopup = document.getElementById("reservationPopup");
+const closePopup = document.querySelector(".popup-close");
+
 // Function to open the modal
 function openModal() {
     modal.style.display = "block";
@@ -58,6 +62,16 @@ function closeModalFunction() {
 // Function to close the cloned book within the modal
 function closeClonedBook() {
     closeModalFunction();
+}
+
+// Function to open the reservation popup
+function openReservationPopup() {
+    reservationPopup.style.display = "block";
+}
+
+// Function to close the reservation popup
+function closeReservationPopup() {
+    reservationPopup.style.display = "none";
 }
 
 // Attach click event listeners to each book
@@ -78,6 +92,16 @@ books.forEach((book) => {
             moreInfo.remove();
         }
 
+        // Add a "Read More" button to the cloned book
+        const reservationButton = document.createElement("button");
+        reservationButton.textContent = "Reservation";
+        reservationButton.classList.add("reservation-button");
+        reservationButton.addEventListener("click", function () {
+            // Open the reservation popup when the "Read More" button is clicked
+            openReservationPopup();
+        });
+        clonedBook.appendChild(reservationButton);
+
         // Remove transition and transform properties
         clonedBook.style.transition = "none";
         clonedBook.style.transform = "none";
@@ -85,8 +109,6 @@ books.forEach((book) => {
         // Append the cloned book to the modal content
         modalContent.innerHTML = "";
         modalContent.appendChild(clonedBook);
-
-
 
         // Open the modal
         openModal();
@@ -102,6 +124,16 @@ window.addEventListener("click", function (event) {
         closeModalFunction();
     }
 });
+
+// Close the reservation popup when the close button is clicked
+closePopup.addEventListener("click", closeReservationPopup);
+
+
+// Function to open the reservation popup
+function openReservationPopup() {
+    // Display the reservation popup
+    reservationPopup.style.display = "block";
+}
 
 
 // Get all the star elements
