@@ -162,10 +162,11 @@ stars.forEach(function(star) {
         });
     });
 });
+
 function filterFunction() {
     // Get the search input value
     var input = document.querySelector('.search');
-
+    var filter = input.value.toUpperCase();
 
     // Get all the book elements within the bookgrid
     var books = document.querySelectorAll('.bookgrid .book');
