@@ -187,3 +187,39 @@ function filterFunction() {
         }
     }
 }
+const dateInput = document.getElementById("date");
+
+// Get today's date in the format YYYY-MM-DD
+const today = new Date().toISOString().split("T")[0];
+
+// Set the minimum date attribute to today
+dateInput.setAttribute("min", today);
+
+// Add an event listener to the date input to prevent selecting past dates
+dateInput.addEventListener("input", function () {
+    const selectedDate = dateInput.value;
+    if (selectedDate < today) {
+        dateInput.setCustomValidity("Please select a date from today or in the future.");
+    } else {
+        dateInput.setCustomValidity("");
+    }
+});
+// Function to close the reservation popup when the "Escape" key is pressed
+function closeReservationPopupOnEscape(event) {
+    if (event.key === "Escape") {
+        const reservationPopup = document.getElementById("reservationPopup");
+        reservationPopup.style.display = "none";
+    }
+}
+
+// Function to close the book modal when the "Escape" key is pressed
+function closeBookModalOnEscape(event) {
+    if (event.key === "Escape") {
+        const bookModal = document.getElementById("bookModal");
+        bookModal.style.display = "none";
+    }
+}
+
+// Add event listeners to close popups on "Escape" key press
+document.addEventListener("keydown", closeReservationPopupOnEscape);
+document.addEventListener("keydown", closeBookModalOnEscape);
