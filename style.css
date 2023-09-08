@@ -14,11 +14,13 @@ h1,
 p {
     margin: 0;
     padding: 0;
+   
 }
 
 /* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
+    overflow:scroll;
 }
 
 /* Style the search bar and title */
