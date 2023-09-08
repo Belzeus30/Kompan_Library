@@ -126,7 +126,7 @@ h1 {
 
 }
 .filterbtn:active{
-    background-color: #B3B3B3;
+    background-color: #BFBFBF;
 }
 .modal {
     display: none;
@@ -194,8 +194,8 @@ h1 {
 /* Styles for the reservation button */
 .enlarged-book .reservation-button {
     position: absolute;
-    bottom: 10px; /* Adjust as needed for the desired vertical position */
-    right: 10px; /* Adjust as needed for the desired horizontal position */
+    bottom: .5rem; /* Adjust as needed for the desired vertical position */
+    right: .5rem; /* Adjust as needed for the desired horizontal position */
     background-color: #007BFF;
     color: white;
     padding: 10px 20px;
