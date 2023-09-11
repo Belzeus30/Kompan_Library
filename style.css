@@ -48,9 +48,9 @@
     }
 
     .book .book-info {
-        flex-direction: row; /* Display book info next to the image */
+        flex-direction: row;
         align-items: top;
-        padding-left: 0; /* Remove left padding */
+        padding-left: 0;
         gap: .5rem !important;
     }
 
@@ -110,7 +110,6 @@
     }
 }
 
-/* Reset some default styles */
 html,
 body,
 h1,
@@ -120,18 +119,15 @@ p {
 
 }
 
-/* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-/* Style the search bar and title */
 h1 {
     margin-bottom: 1rem;
     background-color: #E60023;
-    /* Use the new color here */
     color: white;
     padding: 10px;
     text-align: center;
@@ -143,10 +139,8 @@ h1 {
 
     display: flex;
     justify-content: flex-start;
-    /* Align search bar to the right */
     align-items: center;
     padding: 10px;
-    /* Add padding to the topsearch container */
 }
 
 .displayopt button {
@@ -178,10 +172,8 @@ h1 {
     gap: 1rem;
     display: flex;
     justify-content: flex-end;
-    /* Align search bar to the right */
     align-items: center;
     padding: 10px;
-    /* Add padding to the topsearch container */
 }
 
 .search {
@@ -190,22 +182,17 @@ h1 {
     border-radius: 5px;
     outline: none;
     background-color: white;
-    /* Set the background color to white */
     margin-right: 20px;
-    /* Add some margin for separation */
 }
 
 /* Style the book grid with padding */
 .bookgrid {
     border-radius: 10px;
     background-color: #E60023;
-    /* Use the new color here */
     padding: 1rem;
-    /* Add padding to the bookgrid */
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    /* Increase the gap between the books */
     margin: 2rem;
 }
 
@@ -215,37 +202,26 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: left;
-    /* Align text to the left */
     display: flex;
     flex-direction: column;
-    /* Display content in a column */
     align-items: flex-start;
-    /* Align items to the top */
     flex-basis: calc(33.33% - 20px);
-    /* Three books per row with gap */
     max-width: calc(33.33% - 20px);
-    /* Three books per row with gap */
     box-sizing: border-box;
     position: relative;
-    /* Add relative positioning for the footer */
 }
 
 .book img {
     max-width: 100%;
-    /* Set image width to 100% of the container */
     height: auto;
     margin-bottom: 1rem;
-    /* Add margin to create space under the image */
     padding-right: 1rem;
 }
 
 .book .book-info {
     display: flex;
-    /* Display the image and details side by side */
     align-items: center;
-    /* Vertically center align items */
     margin-bottom: 1rem;
-    /* Add margin to create space between image and details */
 }
 
 .book .book-info h3 {
@@ -254,12 +230,10 @@ h1 {
 
 .book .book-info p {
     margin-bottom: .7rem;
-    /* Add margin between paragraphs in book details */
 }
 
 .book .book-footer {
     position: absolute;
-    /* Position the footer at the bottom */
     bottom: 5px;
     right: 5px;
     font-size: 12px;
@@ -288,7 +262,7 @@ h1 {
 }
 
 .filter:active {
-    opacity: 0.5;
+    background-color: #D7D7D7;
 }
 
 
@@ -314,13 +288,12 @@ h1 {
 }
 
 .filterbtn {
-
+    background-color: #D7D7D7;
     border: 1px solid;
     width: 6rem;
     height: 2rem;
     text-align: center;
     padding: 0.5rem;
-    /* Adjust padding as needed */
 }
 
 .filterbtn:hover {
@@ -358,9 +331,7 @@ h1 {
 /* Styles for the enlarged book content */
 .enlarged-book {
     max-width: 100%;
-    /* Enlarge to cover the entire modal */
     max-height: 100%;
-    /* Enlarge to cover the entire modal */
     width: 45rem;
     height: 23rem;
     border: none;
@@ -373,7 +344,6 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     position: relative;
-    /* Position relative for absolute positioning of the button */
 }
 
 /* Styles for the book info section */
@@ -381,7 +351,6 @@ h1 {
     display: flex;
     text-align: center;
     gap: 10rem;
-    /* Adjust as needed for the desired gap between the image and text */
 }
 
 .enlarged-book .book-info h3 {
@@ -395,24 +364,18 @@ h1 {
 /* Styles for the book details */
 .enlarged-book .book-details {
     flex: 1;
-    /* Allow the text to take up available space */
 }
 
-/* Styles for the image */
 .enlarged-book .book-info img {
     max-width: 200px;
-    /* Adjust the maximum width as needed */
     height: auto;
-    /* Maintain aspect ratio */
 }
 
 /* Styles for the reservation button */
 .enlarged-book .reservation-button {
     position: absolute;
     bottom: .5rem;
-    /* Adjust as needed for the desired vertical position */
     right: .5rem;
-    /* Adjust as needed for the desired horizontal position */
     background-color: #007BFF;
     color: white;
     padding: 10px 20px;
@@ -431,13 +394,10 @@ h1 {
     position: absolute;
     top: 10px;
     right: 10px;
-    /* Adjust the right position to fit inside the white square */
     font-size: 30px;
     cursor: pointer;
     color: white;
-    /* Change the color for visibility */
     z-index: 2;
-    /* Add z-index to keep the close button above the content */
 }
 
 .popup {
@@ -471,7 +431,6 @@ h1 {
     font-size: 20px;
 }
 
-/* inputs css*/
 /* Style the submit button */
 label {
     font-weight: bold;
