@@ -238,23 +238,36 @@ function changeCSS() {
     linkElement.setAttribute('href', newHref); // Set the new href
 }
 
+let isStyle1 = true;
 
-const button = document.getElementById('change-css-button');
-button.addEventListener('click', changeCSS);
+        function setCSSForPhone() {
+            const linkElement = document.getElementById('css-link');
+            const currentHref = linkElement.getAttribute('href'); // Get the current href
+            const screenWidth = window.innerWidth;
 
+            // Determine whether to use 'style.css' or 'styles.css' based on screen width
+            const newHref = (screenWidth <= 425) ? 'styles.css' : 'style.css';
 
-let isImage1 = true;
+            linkElement.setAttribute('href', newHref); // Set the new href
+        }
 
-function imgToggle() {
-  const image = document.getElementById("css-image");
-  if (isImage1) {
-    image.src = "column.png";
-    image.alt = "row.png";
-  } else {
-    image.src = "row.png";
-    image.alt = "column.png";
-  }
-  isImage1 = !isImage1;
-}
+        function changeCSS() {
+            const linkElement = document.getElementById('css-link');
+            const currentHref = linkElement.getAttribute('href'); // Get the current href
 
-document.getElementById("change-css-button").addEventListener("click", imgToggle);
+            // Toggle between 'style.css' and 'styles.css'
+            const newHref = (isStyle1) ? 'styles.css' : 'style.css';
+
+            linkElement.setAttribute('href', newHref); // Set the new href
+
+            isStyle1 = !isStyle1;
+        }
+
+        const button = document.getElementById('change-css-button');
+        button.addEventListener('click', changeCSS);
+
+        // Set the initial CSS based on screen width
+        setCSSForPhone();
+
+        // Listen for window resize events to adjust CSS when the screen width changes
+        window.addEventListener('resize', setCSSForPhone);
