@@ -1,5 +1,5 @@
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 425px) {
+    
     /* Adjust your existing styles or add new styles here for phone screens */
     body {
         /* Example: Change body background color for phones */
@@ -11,28 +11,7 @@
         font-size: 24px;
     }
 
-    .book {
-        /* Example: Adjust book container styles for phones */
-        margin-left: 0;
-        max-width: 100%;
-        flex-direction: column;
-    }
-
-    .book img {
-        /* Example: Adjust book image styles for phones */
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .book .book-info {
-        /* Example: Adjust book info styles for phones */
-        padding-left: 0;
-        align-items: center;
-    }
-
     .displayopt {
-        flex-direction: row;
-        align-items: center;
         padding: 10px;
     }
 
@@ -52,8 +31,83 @@
     }
     .filter{
         margin-bottom: 10px;
+    }   
+    /* Updated CSS for larger screens */
+    .book.book{
+       
+        padding: 0.5rem;
+        max-width: none;
+        width: 23rem;
+        margin: 2rem;
+        display: block;
     }
 
+    .book img {
+        max-width: 50% !important;
+        padding: 0.5rem !important;
+    }
+
+    .book .book-info {
+        flex-direction: row; /* Display book info next to the image */
+        align-items: top;
+        padding-left: 0; /* Remove left padding */
+        gap: .5rem !important;
+    }
+
+    .book .book-details {
+        flex: 1;
+        padding-left: .5rem;
+    }
+
+    .book .book-details h3 {
+        font-size: 1.5rem;
+        margin-bottom:2rem;
+    }
+
+    .book .book-details p {
+        font-size: 1rem;
+    }
+
+    .book .book-description {
+        display: none;
+        
+    }
+    .modal-content {
+        min-height: 100vh!important;
+        min-width: 100vw!important;
+        
+        padding:0!important;
+    }
+    .enlarged-book {
+        max-width: 100%!important;
+        max-height: 100%!important;
+        width:25rem!important;
+        
+        /* Position relative for absolute positioning of the button */
+    }
+    .enlarged-book .book-info {
+        flex-direction: row!important;
+        gap: 1rem!important;
+        text-align: left!important;
+    }
+
+    .enlarged-book .book-info h3,
+    .enlarged-book .book-info p {
+        margin-bottom: 1rem;
+    }
+
+    .enlarged-book .book-info img {
+        max-width: 100%;
+        height: auto;
+    }
+    .enlarged-book .book-description{
+        display:block;
+        margin: 1rem;
+    }
+    .popup-content{
+        width: 22rem!important;
+        margin: 1rem!important;
+    }
 }
 
 /* Reset some default styles */
@@ -112,7 +166,8 @@ h1 {
 }
 
 .displayopt button:hover {
-    opacity: 0.7;
+    background-color: #D7D7D7;
+    cursor: pointer;
 }
 
 .displayopt button:active {
@@ -228,7 +283,7 @@ h1 {
 }
 
 .filter:hover {
-    opacity: 0.7;
+    background-color: #D7D7D7;
     cursor: pointer;
 }
 
@@ -256,10 +311,6 @@ h1 {
 
 .show {
     display: block;
-}
-
-.hide {
-    display: none;
 }
 
 .filterbtn {

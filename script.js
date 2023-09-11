@@ -233,18 +233,28 @@ function changeCSS() {
     const currentHref = linkElement.getAttribute('href'); // Get the current href
 
     // Toggle between 'style.css' and 'styles.css'
-    const newHref = (currentHref === 'style.css') ? 'styles.css' : 'style.css';
+    const newHref = (currentHref === 'styles.css') ? 'style.css' : 'styles.css';
 
     linkElement.setAttribute('href', newHref); // Set the new href
 }
 
-function closeFilterList() {
-    const popup = document.getElementById("Filters");
-    if (filter.show.display="block")
-    popup.classList.toggle("hide");
-}
 
 const button = document.getElementById('change-css-button');
 button.addEventListener('click', changeCSS);
-button.addEventListener('click', closeFilterList);
 
+
+let isImage1 = true;
+
+function imgToggle() {
+  const image = document.getElementById("css-image");
+  if (isImage1) {
+    image.src = "column.png";
+    image.alt = "row.png";
+  } else {
+    image.src = "row.png";
+    image.alt = "column.png";
+  }
+  isImage1 = !isImage1;
+}
+
+document.getElementById("change-css-button").addEventListener("click", imgToggle);
