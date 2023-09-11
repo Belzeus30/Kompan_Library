@@ -134,7 +134,14 @@ h1 {
     border: 1.5px solid black;
     cursor: pointer;
 }
+.displayopt button:hover {
+    background-color: #D7D7D7;
+    cursor: pointer;
+}
 
+.displayopt button:active {
+    opacity: 0.5;
+}
 .grid_icon {
     width: 20px;
     height: 16px;
