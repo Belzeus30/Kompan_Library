@@ -1,6 +1,7 @@
 //filter dropdown
 //
 
+
 function toggleFilters() {
     const popup = document.getElementById("Filters");
     popup.classList.toggle("show");
@@ -23,7 +24,7 @@ function handleFilterClick(category) {
     books.forEach(book => {
         const bookCategory = book.getAttribute('data-category');
         if (bookCategory === category || category === 'all') {
-            book.style.display = 'block'; // Show books of the selected category or all books if 'all' is selected
+            book.style.display = 'flex'; // Show books of the selected category or all books if 'all' is selected
         } else {
             book.style.display = 'none'; // Hide other books
         }
@@ -223,3 +224,20 @@ function closeBookModalOnEscape(event) {
 // Add event listeners to close popups on "Escape" key press
 document.addEventListener("keydown", closeReservationPopupOnEscape);
 document.addEventListener("keydown", closeBookModalOnEscape);
+
+
+
+
+
+function changeCSS() {
+    const linkElement = document.getElementById('css-link');
+    const currentHref = linkElement.getAttribute('href'); // Get the current href
+
+    // Toggle between 'style.css' and 'styles.css'
+    const newHref = (currentHref === 'style.css') ? 'styles.css' : 'style.css';
+
+    linkElement.setAttribute('href', newHref); // Set the new href
+}
+
+const button = document.getElementById('change-css-button');
+button.addEventListener('click', changeCSS);

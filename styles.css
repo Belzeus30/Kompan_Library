@@ -14,13 +14,13 @@ h1,
 p {
     margin: 0;
     padding: 0;
-   
+
 }
 
 /* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
-    overflow-y:scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -34,10 +34,10 @@ h1 {
     text-align: center;
     font-family: "VAG Rounded Std";
 }
-   
 
-.displayopt{
-   
+
+.displayopt {
+
     display: flex;
     justify-content: flex-start;
     /* Align search bar to the right */
@@ -45,6 +45,7 @@ h1 {
     padding: 10px;
     /* Add padding to the topsearch container */
 }
+
 .topsearch {
     gap: 1rem;
     display: flex;
@@ -66,82 +67,91 @@ h1 {
     /* Add some margin for separation */
 }
 
-/* Style the book grid with padding */
-.bookgrid {
-    border-radius:10px ;
-    background-color: #E60023;
-    /* Use the new color here */
-    padding: 1rem;
-    /* Add padding to the bookgrid */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    /* Increase the gap between the books */
-    margin: 2rem;
-}
+
+/* Remove the bookgrid styles */
+
+
+/* Updated CSS for smaller books with image and details in a row */
+
+/* Updated CSS with padding for the image and an enlarged book */
+
+/* Updated CSS with padding for the image and an enlarged book */
 
 .book {
     background-color: white;
-    padding: .5rem;
+    padding: 1rem; /* Increased padding for the book */
     border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: left;
-    /* Align text to the left */
+    height:10rem;
     display: flex;
-    flex-direction: column;
-    /* Display content in a column */
+    /* Display book content in a row */
     align-items: flex-start;
-    /* Align items to the top */
-    flex-basis: calc(33.33% - 20px);
-    /* Three books per row with gap */
-    max-width: calc(33.33% - 20px);
-    /* Three books per row with gap */
-    box-sizing: border-box;
+    /* Vertically align book content to the top */
+    margin-bottom: 1rem;
+    /* Add margin between books in the list */
+    max-width: calc(70% - 1rem); /* Enlarged max width for each book (70% with 1rem gap) */
+    margin-left: 5rem;
+    /* Add a gap to the left of each book */
+    flex-wrap: nowrap;
+    /* Prevent wrapping content to the next line */
     position: relative;
-    /* Add relative positioning for the footer */
+    /* Set relative positioning for the book container */
 }
 
 .book img {
+    width: auto;
+    /* Allow the image to resize based on its aspect ratio */
+    height: 90%;
+    /* Make the image cover the entire book's height */
     max-width: 100%;
-    /* Set image width to 100% of the container */
-    height: auto;
-    margin-bottom: 1rem;
-    /* Add margin to create space under the image */
-    padding-right: 1rem;
+    /* Ensure the image doesn't exceed the book's width */
+    position: absolute;
+    /* Position the image absolutely within the book container */
+    top: 0;
+    left: 0;
+    /* Position the image at the top-left corner of the book container */
+    padding: 0.5rem; /* Added padding for the image */
 }
 
 .book .book-info {
+    flex-grow: 1;
+    /* Allow book details to take up remaining space */
     display: flex;
-    /* Display the image and details side by side */
-    align-items: center;
-    /* Vertically center align items */
-    margin-bottom: 1rem;
-    /* Add margin to create space between image and details */
+    /* Display book details and footer in a row */
+    flex-direction: column;
+    /* Stack book details and footer vertically */
 }
 
 .book .book-info h3 {
-    margin-bottom: .7rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem; /* Enlarged font size for book titles */
 }
 
 .book .book-info p {
-    margin-bottom: .7rem;
-    /* Add margin between paragraphs in book details */
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem; /* Enlarged font size for book details */
 }
 
 .book .book-footer {
-    position: absolute;
-    /* Position the footer at the bottom */
-    bottom: 5px;
-    right: 5px;
-    font-size: 12px;
+    font-size: 0.8rem; /* Enlarged font size for the footer */
     color: gray;
 }
 
-/* Add some hover effect to the books */
+/* Add hover effect to individual books */
 .book:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Enlarged hover effect for the book */
     transition: transform 0.3s ease-in-out;
 }
+
+/* Optional: Add a border to each book to separate them visually */
+.book+.book {
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+
+
 
 .filter {
     color: black;
@@ -149,19 +159,20 @@ h1 {
     height: 2rem;
     border: 1.5px solid black;
     background-color: #BFBFBF;
-    border-radius:10px ;
+    border-radius: 10px;
 
 }
-.filter:hover{
-    opacity:0.7;
+
+.filter:hover {
+    opacity: 0.7;
 }
-.filter:active{
-    opacity:0.2;
+
+.filter:active {
+    opacity: 0.2;
 }
 
 .filters-content {
     border-radius: 10px;
-    
     display: none;
     position: fixed;
     max-width: 10rem;
@@ -385,8 +396,3 @@ input[type="submit"]:hover,
 input[type="reset"]:hover {
     opacity: 0.8;
 }
-
-.flaticon.flaticon-menu-free-icon {
-    font-size: 24px;
-    color: #007bff; /* Change the color */
-  }

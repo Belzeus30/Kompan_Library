@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corporate Intranet - Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link id="css-link" rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="Red_Homo_Ludens.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@1.0.0/dist/font/flaticon.css"/>
 </head>
 
 <body>
     <div>
         <h1>Kompan Library</h1>
     </div>
+
     <div class="topsearch">
+        <div class="displayopt">
+            <button id="change-css-button">
+                <img src="row.png"/>s
+            </button>
+        </div>
         <form id="filterForm"> <!-- You can specify the form action -->
             <button class="filter" onclick="toggleFilters()">Filters</button>
             <div id="Filters" class="filters-content">
@@ -27,6 +34,7 @@
 
         <input class="search" placeholder="Search" onkeyup="filterFunction()">
     </div>
+
     <div class="bookgrid"><!--Books place-->
         <div class="book" data-category="IT">
             <div class="book-info">
@@ -142,13 +150,13 @@
 
             </div>
         </div>
-        
+
         <div id="reservationPopup" class="popup">
             <div class="popup-content">
                 <span class="popup-close" id="closePopup">×</span>
                 <h2>Reservation Form</h2>
                 <form id="reservationForm">
-                    <label for="name">Name:</label><br> 
+                    <label for="name">Name:</label><br>
                     <input type="text" id="name" name="name" required><br>
                     <label for="phone">Phone:</label><br>
                     <input type="tel" id="phone" name="phone" required><br>
