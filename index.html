@@ -7,7 +7,7 @@
     <title>Corporate Intranet - Library</title>
     <link id="css-link" rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="Red_Homo_Ludens.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flaticon@1.0.0/dist/font/flaticon.css"/>
+
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <div class="topsearch">
         <div class="displayopt">
             <button id="change-css-button">
-                <img src="row.png"/>s
+                <img src="row.png" class="grid_icon" />
             </button>
         </div>
         <form id="filterForm"> <!-- You can specify the form action -->
@@ -144,28 +144,29 @@
     <div id="bookModal" class="modal">
         <div class="modal-content">
             <span class="close">×</span>
-            <div id="modalContent" class="enlarged-book">
+            <div id="modalContent" >
 
                 <!-- Enlarged book content will be dynamically added here -->
 
             </div>
         </div>
 
-        <div id="reservationPopup" class="popup">
-            <div class="popup-content">
-                <span class="popup-close" id="closePopup">×</span>
-                <h2>Reservation Form</h2>
-                <form id="reservationForm">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br>
-                    <label for="phone">Phone:</label><br>
-                    <input type="tel" id="phone" name="phone" required><br>
-                    <label for="date">Pick a Date:</label><br>
-                    <input type="date" id="date" name="date" required><br><br>
-                    <input type="submit" value="Send">
-                    <input type="reset" value="Reset">
-                </form>
-            </div>
+
+    </div>
+    <div id="reservationPopup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" id="closePopup">×</span>
+            <h2>Reservation Form</h2>
+            <form id="reservationForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="phone">Phone:</label><br>
+                <input type="tel" id="phone" name="phone" required><br>
+                <label for="date">Pick a Date:</label><br>
+                <input type="date" id="date" name="date" required><br><br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
         </div>
     </div>
 

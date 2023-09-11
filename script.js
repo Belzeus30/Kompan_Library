@@ -5,7 +5,6 @@
 function toggleFilters() {
     const popup = document.getElementById("Filters");
     popup.classList.toggle("show");
-    filter.style.border-bottom-right-radius=='0';
 }
 
 function handleFilterClick(category) {
@@ -239,5 +238,13 @@ function changeCSS() {
     linkElement.setAttribute('href', newHref); // Set the new href
 }
 
+function closeFilterList() {
+    const popup = document.getElementById("Filters");
+    if (filter.show.display="block")
+    popup.classList.toggle("hide");
+}
+
 const button = document.getElementById('change-css-button');
 button.addEventListener('click', changeCSS);
+button.addEventListener('click', closeFilterList);
+

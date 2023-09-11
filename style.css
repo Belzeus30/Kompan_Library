@@ -1,10 +1,59 @@
-/* Media query for smaller screens */
 @media screen and (max-width: 768px) {
-    .book {
-        flex-basis: calc(50% - 20px);
-        /* Two books per row with gap */
-        max-width: calc(50% - 20px);
+
+    /* Adjust your existing styles or add new styles here for phone screens */
+    body {
+        /* Example: Change body background color for phones */
+        background-color: #f5f5f5;
     }
+
+    h1 {
+        /* Example: Adjust title font size for phones */
+        font-size: 24px;
+    }
+
+    .book {
+        /* Example: Adjust book container styles for phones */
+        margin-left: 0;
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .book img {
+        /* Example: Adjust book image styles for phones */
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .book .book-info {
+        /* Example: Adjust book info styles for phones */
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .displayopt {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .displayopt button {
+        margin-bottom: 10px;
+    }
+
+    .topsearch {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .search {
+        margin-bottom: 10px;
+        width: 70%;
+    }
+    .filter{
+        margin-bottom: 10px;
+    }
+
 }
 
 /* Reset some default styles */
@@ -14,13 +63,13 @@ h1,
 p {
     margin: 0;
     padding: 0;
-   
+
 }
 
 /* Apply a background color and font family to the entire page */
 body {
     background-color: #f0f0f0;
-    overflow-y:scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 
@@ -34,10 +83,10 @@ h1 {
     text-align: center;
     font-family: "VAG Rounded Std";
 }
-   
 
-.displayopt{
-   
+
+.displayopt {
+
     display: flex;
     justify-content: flex-start;
     /* Align search bar to the right */
@@ -45,6 +94,31 @@ h1 {
     padding: 10px;
     /* Add padding to the topsearch container */
 }
+
+.displayopt button {
+    background-color: #BFBFBF;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    cursor: pointer;
+
+}
+
+.grid_icon {
+    width: 20px;
+    height: 16px;
+    display: flex;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.displayopt button:hover {
+    opacity: 0.7;
+}
+
+.displayopt button:active {
+    opacity: 0.5;
+}
+
 .topsearch {
     gap: 1rem;
     display: flex;
@@ -68,7 +142,7 @@ h1 {
 
 /* Style the book grid with padding */
 .bookgrid {
-    border-radius:10px ;
+    border-radius: 10px;
     background-color: #E60023;
     /* Use the new color here */
     padding: 1rem;
@@ -149,19 +223,23 @@ h1 {
     height: 2rem;
     border: 1.5px solid black;
     background-color: #BFBFBF;
-    border-radius:10px ;
+    border-radius: 10px;
 
 }
-.filter:hover{
-    opacity:0.7;
+
+.filter:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
-.filter:active{
-    opacity:0.2;
+
+.filter:active {
+    opacity: 0.5;
 }
+
 
 .filters-content {
     border-radius: 10px;
-    
+
     display: none;
     position: fixed;
     max-width: 10rem;
@@ -180,6 +258,10 @@ h1 {
     display: block;
 }
 
+.hide {
+    display: none;
+}
+
 .filterbtn {
 
     border: 1px solid;
@@ -193,11 +275,12 @@ h1 {
 .filterbtn:hover {
     cursor: pointer;
     background-color: #a7a7a7;
-
+    opacity: 0.7;
 }
 
 .filterbtn:active {
     background-color: #BFBFBF;
+    opacity: 0.5;
 }
 
 .modal {
@@ -385,8 +468,3 @@ input[type="submit"]:hover,
 input[type="reset"]:hover {
     opacity: 0.8;
 }
-
-.flaticon.flaticon-menu-free-icon {
-    font-size: 24px;
-    color: #007bff; /* Change the color */
-  }
