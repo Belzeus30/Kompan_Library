@@ -325,13 +325,11 @@ h1 {
 
 .filterbtn:hover {
     cursor: pointer;
-    background-color: #a7a7a7;
-    opacity: 0.7;
+    background-color: #BFBFBF;
 }
 
 .filterbtn:active {
     background-color: #BFBFBF;
-    opacity: 0.5;
 }
 
 .modal {
