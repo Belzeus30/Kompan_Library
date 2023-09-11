@@ -1,9 +1,58 @@
-/* Media query for smaller screens */
+/* Media Query for phones (up to 768px) */
 @media screen and (max-width: 768px) {
+    
+    /* Adjust your existing styles or add new styles here for phone screens */
+    body {
+        /* Example: Change body background color for phones */
+        background-color: #f5f5f5;
+    }
+
+    h1 {
+        /* Example: Adjust title font size for phones */
+        font-size: 24px;
+    }
+
     .book {
-        flex-basis: calc(50% - 20px);
-        /* Two books per row with gap */
-        max-width: calc(50% - 20px);
+        /* Example: Adjust book container styles for phones */
+        margin-left: 0;
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .book img {
+        /* Example: Adjust book image styles for phones */
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .book .book-info {
+        /* Example: Adjust book info styles for phones */
+        padding-left: 0;
+        align-items: center;
+    }
+
+    .displayopt {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .displayopt button {
+        margin-bottom: 10px;
+    }
+
+    .topsearch {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .search {
+        margin-bottom: 10px;
+        width: 70%;
+    }
+    .filter{
+        margin-bottom: 10px;
     }
 }
 
@@ -46,6 +95,21 @@ h1 {
     /* Add padding to the topsearch container */
 }
 
+.displayopt button {
+    background-color: #BFBFBF;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    cursor: pointer;
+}
+
+.grid_icon {
+    width: 20px;
+    height: 16px;
+    display: flex;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
 .topsearch {
     gap: 1rem;
     display: flex;
@@ -68,90 +132,79 @@ h1 {
 }
 
 
-/* Remove the bookgrid styles */
-
-
-/* Updated CSS for smaller books with image and details in a row */
-
-/* Updated CSS with padding for the image and an enlarged book */
-
-/* Updated CSS with padding for the image and an enlarged book */
-
+/* Updated CSS to display book info next to the image */
 .book {
     background-color: white;
-    padding: 1rem; /* Increased padding for the book */
+    padding: 0.5rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    height:10rem;
-    display: flex;
-    /* Display book content in a row */
-    align-items: flex-start;
-    /* Vertically align book content to the top */
-    margin-bottom: 1rem;
-    /* Add margin between books in the list */
-    max-width: calc(70% - 1rem); /* Enlarged max width for each book (70% with 1rem gap) */
     margin-left: 5rem;
-    /* Add a gap to the left of each book */
-    flex-wrap: nowrap;
-    /* Prevent wrapping content to the next line */
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    max-width: calc(70% - 5rem);
+    box-sizing: border-box;
     position: relative;
-    /* Set relative positioning for the book container */
 }
 
 .book img {
-    width: auto;
-    /* Allow the image to resize based on its aspect ratio */
-    height: 90%;
-    /* Make the image cover the entire book's height */
-    max-width: 100%;
-    /* Ensure the image doesn't exceed the book's width */
-    position: absolute;
-    /* Position the image absolutely within the book container */
-    top: 0;
-    left: 0;
-    /* Position the image at the top-left corner of the book container */
-    padding: 0.5rem; /* Added padding for the image */
+    max-width: 30%;
+    height: auto;
+    padding: 1rem;
 }
-
-.book .book-info {
-    flex-grow: 1;
-    /* Allow book details to take up remaining space */
+.book .book-info{
     display: flex;
-    /* Display book details and footer in a row */
+}
+.book .book-details {
+    flex: 1;
+    padding-left: 1rem;
+    display: flex;
     flex-direction: column;
-    /* Stack book details and footer vertically */
+    align-items: flex-start;
 }
 
-.book .book-info h3 {
-    margin-bottom: 0.2rem;
-    font-size: 0.9rem; /* Enlarged font size for book titles */
+.book .book-details h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.5rem;
 }
 
-.book .book-info p {
-    margin-bottom: 0.2rem;
-    font-size: 0.8rem; /* Enlarged font size for book details */
+.book .book-details p {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
 }
 
-.book .book-footer {
-    font-size: 0.8rem; /* Enlarged font size for the footer */
+.book .book-details .rating {
+    font-size: 1rem;
     color: gray;
 }
+.book .book-description{
+    position: absolute;
+    /* Position the footer at the bottom */
+    bottom: 3rem;
+    right:2rem;
+    
 
+}
+.book .book-footer {
+    position: absolute;
+    /* Position the footer at the bottom */
+    bottom: 1rem;
+    right:1rem;
+    font-size: 12px;
+    color: gray;
+}
 /* Add hover effect to individual books */
 .book:hover {
-    transform: scale(1.1); /* Enlarged hover effect for the book */
+    transform: scale(1.1);
     transition: transform 0.3s ease-in-out;
 }
 
 /* Optional: Add a border to each book to separate them visually */
-.book+.book {
+.book + .book {
     border-top: 1px solid #ddd;
     padding-top: 1rem;
     margin-top: 1rem;
 }
-
-
-
 
 .filter {
     color: black;
@@ -168,7 +221,7 @@ h1 {
 }
 
 .filter:active {
-    opacity: 0.2;
+    opacity: 0.5;
 }
 
 .filters-content {
@@ -190,6 +243,9 @@ h1 {
 .show {
     display: block;
 }
+.hide{
+    display: none;
+}
 
 .filterbtn {
 
@@ -204,11 +260,12 @@ h1 {
 .filterbtn:hover {
     cursor: pointer;
     background-color: #a7a7a7;
-
+    opacity: 0.7;
 }
 
 .filterbtn:active {
     background-color: #BFBFBF;
+    opacity: 0.5;
 }
 
 .modal {
@@ -240,8 +297,8 @@ h1 {
     /* Enlarge to cover the entire modal */
     max-height: 100%;
     /* Enlarge to cover the entire modal */
-    width: 45rem;
-    height: 23rem;
+    width: 50rem;
+    height: 28rem;
     border: none;
     box-shadow: none;
     background-color: white;
@@ -274,6 +331,9 @@ h1 {
 /* Styles for the book details */
 .enlarged-book .book-details {
     flex: 1;
+    /* Allow the text to take up available space */
+}.enlarged-book .book-description {
+    margin-bottom: 2rem;
     /* Allow the text to take up available space */
 }
 
