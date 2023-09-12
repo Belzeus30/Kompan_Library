@@ -163,6 +163,7 @@ stars.forEach(function(star) {
     });
 });
 
+
 function filterFunction() {
     // Get the search input value
     var input = document.querySelector('.search');

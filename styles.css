@@ -84,7 +84,8 @@
 /* Reset some default styles */
 html,body,h1,p {
     margin: 0;
-    padding: 0;
+    padding:0;
+   
 }
 /* Apply a background color and font family to the entire page */
 body {
@@ -169,7 +170,7 @@ h1 {
 }
 .filters-content button {
     color: black;
-    padding: 8px;
+    
     display: block;
 }
 .show {
@@ -198,7 +199,6 @@ h1 {
     margin-left: 5rem;
     border-radius: 10px;
     text-align: left;
-    display: flex;
     align-items: flex-start;
     max-width: calc(70% - 5rem);
     box-sizing: border-box;
