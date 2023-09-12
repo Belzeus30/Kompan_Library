@@ -271,3 +271,19 @@ let isStyle1 = true;
 
         // Listen for window resize events to adjust CSS when the screen width changes
         window.addEventListener('resize', setCSSForPhone);
+        
+let isImage1 = true;
+
+function imgToggle() {
+  const image = document.getElementById("css-image");
+  if (isImage1) {
+    image.src = "column.png";
+    image.alt = "row.png";
+  } else {
+    image.src = "row.png";
+    image.alt = "column.png";
+  }
+  isImage1 = !isImage1;
+}
+
+document.getElementById("change-css-button").addEventListener("click", imgToggle);
