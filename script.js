@@ -344,9 +344,13 @@ function addBook(title, author, state, description) {
     const bookDescription = document.createElement("div");
     bookDescription.className = "book-description";
     const bookDescriptionP1 = document.createElement("p");
-  
+    const maxCharacters = 350; // Change this value to your desired character limit
+    const descriptionText = description || "No description available";
+    bookDescriptionP1.textContent = descriptionText.length > maxCharacters
+      ? descriptionText.slice(0, maxCharacters) + "..."
+      : descriptionText;
     const bookDescriptionP2 = document.createElement("p");
-
+    
 
     // Append description paragraphs to the book description section
     bookDescription.appendChild(bookDescriptionP1);
