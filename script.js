@@ -1,7 +1,4 @@
 //filter dropdown
-//
-
-
 function toggleFilters() {
     const popup = document.getElementById("Filters");
     popup.classList.toggle("show");
@@ -31,11 +28,10 @@ function handleFilterClick(category) {
 }
 
 // Prevent the form from submitting and reloading the page
-document.getElementById("filterForm").addEventListener("submit", function(event) {
+document.getElementById("filterForm").addEventListener("submit", function (event) {
     event.preventDefault();
 });
 //Modal enlarged book
-//
 // Get references to the modal and close button
 const modal = document.getElementById("bookModal");
 const closeModal = document.querySelector(".close"); // Changed the selector to match the close button
@@ -144,8 +140,8 @@ function openReservationPopup() {
 var stars = document.querySelectorAll('.star');
 
 // Add a click event listener to each star
-stars.forEach(function(star) {
-    star.addEventListener('click', function() {
+stars.forEach(function (star) {
+    star.addEventListener('click', function () {
         var rating = this.getAttribute('data-rating'); // Get the rating value
 
         // Set the rating for this book
@@ -156,7 +152,7 @@ stars.forEach(function(star) {
         bookDetails.querySelector('.rating').setAttribute('data-rating', rating);
 
         // Update the rating for the other stars
-        stars.forEach(function(s) {
+        stars.forEach(function (s) {
             var sRating = s.getAttribute('data-rating');
             s.textContent = sRating <= rating ? '★' : '☆';
         });
@@ -241,50 +237,177 @@ function changeCSS() {
 
 let isStyle1 = true;
 
-        function setCSSForPhone() {
-            const linkElement = document.getElementById('css-link');
-            const currentHref = linkElement.getAttribute('href'); // Get the current href
-            const screenWidth = window.innerWidth;
+function setCSSForPhone() {
+    const linkElement = document.getElementById('css-link');
+    const currentHref = linkElement.getAttribute('href'); // Get the current href
+    const screenWidth = window.innerWidth;
 
-            // Determine whether to use 'style.css' or 'styles.css' based on screen width
-            const newHref = (screenWidth <= 425) ? 'styles.css' : 'style.css';
+    // Determine whether to use 'style.css' or 'styles.css' based on screen width
+    const newHref = (screenWidth <= 425) ? 'styles.css' : 'style.css';
 
-            linkElement.setAttribute('href', newHref); // Set the new href
-        }
+    linkElement.setAttribute('href', newHref); // Set the new href
+}
 
-        function changeCSS() {
-            const linkElement = document.getElementById('css-link');
-            const currentHref = linkElement.getAttribute('href'); // Get the current href
+function changeCSS() {
+    const linkElement = document.getElementById('css-link');
+    const currentHref = linkElement.getAttribute('href'); // Get the current href
 
-            // Toggle between 'style.css' and 'styles.css'
-            const newHref = (isStyle1) ? 'styles.css' : 'style.css';
+    // Toggle between 'style.css' and 'styles.css'
+    const newHref = (isStyle1) ? 'styles.css' : 'style.css';
 
-            linkElement.setAttribute('href', newHref); // Set the new href
+    linkElement.setAttribute('href', newHref); // Set the new href
 
-            isStyle1 = !isStyle1;
-        }
+    isStyle1 = !isStyle1;
+}
 
-        const button = document.getElementById('change-css-button');
-        button.addEventListener('click', changeCSS);
+const button = document.getElementById('change-css-button');
+button.addEventListener('click', changeCSS);
 
-        // Set the initial CSS based on screen width
-        setCSSForPhone();
+// Set the initial CSS based on screen width
+setCSSForPhone();
 
-        // Listen for window resize events to adjust CSS when the screen width changes
-        window.addEventListener('resize', setCSSForPhone);
-        
+// Listen for window resize events to adjust CSS when the screen width changes
+window.addEventListener('resize', setCSSForPhone);
+
 let isImage1 = true;
 
 function imgToggle() {
-  const image = document.getElementById("css-image");
-  if (isImage1) {
-    image.src = "column.png";
-    image.alt = "row.png";
-  } else {
-    image.src = "row.png";
-    image.alt = "column.png";
-  }
-  isImage1 = !isImage1;
+    const image = document.getElementById("css-image");
+    if (isImage1) {
+        image.src = "column.png";
+        image.alt = "row.png";
+    } else {
+        image.src = "row.png";
+        image.alt = "column.png";
+    }
+    isImage1 = !isImage1;
 }
 
 document.getElementById("change-css-button").addEventListener("click", imgToggle);
+
+// Function to open the popup
+function openPopup() {
+    const popup = document.getElementById("isbn-popup");
+    popup.style.display = "block";
+}
+
+// Function to close the popup
+function closeIsbnPopup() {
+    const popup = document.getElementById("isbn-popup");
+    popup.style.display = "none";
+}
+
+// Function to add a book by ISBN
+
+// Function to create a new book element and add it to the container
+function addBook(title, author, state, description) {
+    // Create a new book element
+    const bookElement = document.createElement("div");
+    bookElement.className = "book";
+
+    // Create the book info section
+    const bookInfo = document.createElement("div");
+    bookInfo.className = "book-info";
+
+    // Create the book image (You can add an image source here)
+    const bookImage = document.createElement("img");
+    bookImage.alt = "IMG not found";
+
+    // Create the book details section
+    const bookDetails = document.createElement("div");
+    bookDetails.className = "book-details";
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent = title;
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = `Author: ${author}`;
+    const bookState = document.createElement("p");
+    bookState.textContent = `State: ${state}`;
+
+    // Create the rating section (You can add a star rating here)
+    const rating = document.createElement("div");
+    rating.className = "rating";
+    for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.className = "star";
+        star.dataset.rating = i;
+        star.textContent = "☆";
+        rating.appendChild(star);
+    }
+
+    // Append elements to the book details section
+    bookDetails.appendChild(bookTitle);
+    bookDetails.appendChild(bookAuthor);
+    bookDetails.appendChild(bookState);
+    bookDetails.appendChild(rating);
+
+    // Create the book description section
+    const bookDescription = document.createElement("div");
+    bookDescription.className = "book-description";
+    const bookDescriptionP1 = document.createElement("p");
+    bookDescriptionP1.textContent = description;
+    const bookDescriptionP2 = document.createElement("p");
+    
+
+    // Append description paragraphs to the book description section
+    bookDescription.appendChild(bookDescriptionP1);
+    bookDescription.appendChild(bookDescriptionP2);
+
+    // Create the book footer section
+    const bookFooter = document.createElement("p");
+    bookFooter.innerHTML = `<p  class="book-footer">More info about the book</p>`;
+
+    // Append book image, details, description, and footer to the book info section
+    bookInfo.appendChild(bookImage);
+    bookInfo.appendChild(bookDetails);
+
+    // Append book info, description, and footer to the book element
+    bookElement.appendChild(bookInfo);
+    bookElement.appendChild(bookDescription);
+    bookElement.appendChild(bookFooter);
+
+    // Append the new book element to the container
+    const bookContainer = document.querySelector(".bookgrid");
+    bookContainer.appendChild(bookElement);
+}
+
+// Function to fetch book data from Google Books API based on ISBN
+function fetchBookInfo(isbn) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+        .then(response => response.json())
+        .then(data => {
+            // Check if any book data was found
+            if (data.totalItems > 0) {
+                const book = data.items[0].volumeInfo; // Get the first book in the response
+
+                // Call the addBook function with book details
+                addBook(
+                    book.title || "Title not available",
+                    (book.authors && book.authors.join(", ")) || "Author not available",
+                    "State: Unknown",
+                    book.description || "No description available"
+                );
+            } else {
+                // Handle the case where no book data was found for the given ISBN
+                alert("No book data found for the provided ISBN.");
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching book data:", error);
+            alert("An error occurred while fetching book data. Please try again.");
+        });
+}
+
+// Event listener for the "Add Book" button
+document.getElementById("open-popup-button").addEventListener("click", openPopup);
+document.getElementById("popup-close").addEventListener("click", closeIsbnPopup);
+document.getElementById("add-book-button").addEventListener("click", function () {
+    const isbnInput = document.getElementById("isbn-input");
+    const isbn = isbnInput.value;
+
+    if (isbn.trim() !== "") {
+        // Fetch book data based on ISBN
+        fetchBookInfo(isbn);
+    } else {
+        alert("Please enter a valid ISBN.");
+    }
+});

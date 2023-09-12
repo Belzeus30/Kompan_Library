@@ -142,6 +142,9 @@ h1 {
 .show {
     display: block;
 }
+.hide {
+    display: none;
+}
 .filterbtn {
     background-color: #D7D7D7;
     border: 1px solid;

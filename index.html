@@ -60,113 +60,46 @@
         </div>
 
 
-        <div class="book" data-category="ECO">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>How to invest</h3>
-                    <p>Author: Radek Raisigl</p>
-                    <p>State: Reserved</p>
-                    <p>Rating: ★★★★☆</p>
+        <div id="bookModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <div id="modalContent">
+
+                    <!-- Enlarged book content will be dynamically added here -->
+
                 </div>
             </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod empor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
+
+
         </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>Book Title</h3>
-                    <p>Author: Author Name</p>
-                    <p>State: State Name</p>
-                    <p>Rating: ★★★★☆</p>
-                </div>
+        <div id="reservationPopup" class="popup">
+            <div class="popup-content">
+                <span class="popup-close" id="closePopup">×</span>
+                <h2>Reservation Form</h2>
+                <form id="reservationForm">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="phone">Phone:</label><br>
+                    <input type="tel" id="phone" name="phone" required><br>
+                    <label for="date">Pick a Date:</label><br>
+                    <input type="date" id="date" name="date" required><br><br>
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Reset">
+                </form>
             </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>Book Title</h3>
-                    <p>Author: Author Name</p>
-                    <p>State: State Name</p>
-                    <p>Rating: ★★★★☆</p>
-                </div>
-            </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>Book Title</h3>
-                    <p>Author: Author Name</p>
-                    <p>State: State Name</p>
-                    <p>Rating: ★★★★☆</p>
-                </div>
-            </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
-        </div>
-        <div class="book">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>Book Title</h3>
-                    <p>Author: Author Name</p>
-                    <p>State: State Name</p>
-                    <p>Rating: ★★★★☆</p>
-                </div>
-            </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
         </div>
     </div>
-    <div id="bookModal" class="modal">
-        <div class="modal-content">
-            <span class="close">×</span>
-            <div id="modalContent" >
+    <button id="open-popup-button">
+        Add Book
+    </button>
 
-                <!-- Enlarged book content will be dynamically added here -->
-
-            </div>
-        </div>
-
-
-    </div>
-    <div id="reservationPopup" class="popup">
+    <!-- ISBN Popup -->
+    <div class="popup" id="isbn-popup">
         <div class="popup-content">
-            <span class="popup-close" id="closePopup">×</span>
-            <h2>Reservation Form</h2>
-            <form id="reservationForm">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
-                <label for="phone">Phone:</label><br>
-                <input type="tel" id="phone" name="phone" required><br>
-                <label for="date">Pick a Date:</label><br>
-                <input type="date" id="date" name="date" required><br><br>
-                <input type="submit" value="Send">
-                <input type="reset" value="Reset">
-            </form>
+            <span class="popup-close" id="popup-close">&times;</span>
+            <h2>Enter ISBN</h2>
+            <input type="text" id="isbn-input" placeholder="Enter ISBN">
+            <button id="add-book-button">Add Book</button>
         </div>
     </div>
 
