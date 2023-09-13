@@ -280,12 +280,12 @@ document.getElementById("add-book-button").addEventListener("click", function ()
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+// Function to open the modal for a book
 function openModalForBook(book) {
     const modalContent = document.getElementById("modalContent");
-    
+
     // Clone the clicked book square
-    const clonedBook = bookElement.cloneNode(true);
+    const clonedBook = book.cloneNode(true);
 
     // Remove the "More info" paragraph from the cloned book
     const moreInfo = clonedBook.querySelector(".book-footer");
@@ -322,9 +322,10 @@ const books = document.querySelectorAll(".book");
 books.forEach((bookElement) => {
     bookElement.addEventListener("click", function () {
         // Open the modal for the clicked book
-        openModalForBook(this);
+        openModalForBook(bookElement);
     });
 });
+
 // Function to close the modal for an enlarged book
 function closeModalForBook() {
     const modal = document.getElementById("bookModal");
@@ -337,8 +338,10 @@ function openModal() {
     modal.style.display = "block";
 }
 
-// Function to close the modal
-
+// Function to open the reservation popup
+function openReservationPopup() {
+    // Implement your reservation popup logic here
+}
 
 // Close the modal when the close button is clicked
 const closeModal = document.querySelector(".close");
