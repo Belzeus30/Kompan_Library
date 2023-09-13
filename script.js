@@ -323,7 +323,7 @@ books.forEach((bookElement) => {
     bookElement.addEventListener("click", function () {
         // Open the modal for the clicked book
         openModalForBook(bookElement);
-    });
+    }); 
 });
 
 // Function to close the modal for an enlarged book
