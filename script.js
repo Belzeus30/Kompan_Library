@@ -280,12 +280,19 @@ document.getElementById("add-book-button").addEventListener("click", function ()
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function openModalForBook(bookElement) {
-    const modalContent = document.getElementById("modalContent");
+const books = document.querySelectorAll(".book");
+books.forEach((book) => {
+    book.addEventListener("click", function () {
+        // Open the modal for the clicked book
+        openModalForBook(this);
+    });
+});
+function openModalForBook(book) {
+    const modalContent = document.getElementById("bookModal");
+    modal.style.display = "block";
     
     // Clone the clicked book square
-    const clonedBook = bookElement.cloneNode(true);
+    const clonedBook = book.cloneNode(true);
 
     // Remove the "More info" paragraph from the cloned book
     const moreInfo = clonedBook.querySelector(".book-footer");
@@ -314,31 +321,14 @@ function openModalForBook(bookElement) {
     modalContent.appendChild(clonedBook);
 
     // Open the modal
-    openModal();
+    openModalForBook();
 }
 
-// Attach click event listeners to each book
-const books = document.querySelectorAll(".book");
-books.forEach((book) => {
-    book.addEventListener("click", function () {
-        // Open the modal for the clicked book
-        openModalForBook(this);
-    });
-});
 // Function to close the modal for an enlarged book
 function closeModalForBook() {
     const modal = document.getElementById("bookModal");
     modal.style.display = "none";
 }
-
-// Function to open the modal
-function openModal() {
-    const modal = document.getElementById("bookModal");
-    modal.style.display = "block";
-}
-
-// Function to close the modal
-
 
 // Close the modal when the close button is clicked
 const closeModal = document.querySelector(".close");
