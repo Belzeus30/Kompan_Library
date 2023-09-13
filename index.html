@@ -36,58 +36,9 @@
     </div>
 
     <div class="bookgrid"><!--Books place-->
-        <div class="book" data-category="IT">
-            <div class="book-info">
-                <img src="testbook1.png" alt="Book 1">
-                <div class="book-details">
-                    <h3>HTML&CSS</h3>
-                    <p>Author: Tomas A. Powell</p>
-                    <p>State: Borrowed</p>
-                    <div class="rating">
-                        <span class="star" data-rating="1">☆</span>
-                        <span class="star" data-rating="2">☆</span>
-                        <span class="star" data-rating="3">☆</span>
-                        <span class="star" data-rating="4">☆</span>
-                        <span class="star" data-rating="5">☆</span>
-                    </div>
-                </div>
-            </div>
-            <div class="book-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <p class="book-footer">More info about the book</p>
-        </div>
+        
 
 
-        <div id="bookModal" class="modal">
-            <div class="modal-content">
-                <span class="close">×</span>
-                <div id="modalContent">
-
-                    <!-- Enlarged book content will be dynamically added here -->
-
-                </div>
-            </div>
-
-
-        </div>
-        <div id="reservationPopup" class="popup">
-            <div class="popup-content">
-                <span class="popup-close" id="closePopup">×</span>
-                <h2>Reservation Form</h2>
-                <form id="reservationForm">
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" required><br>
-                    <label for="phone">Phone:</label><br>
-                    <input type="tel" id="phone" name="phone" required><br>
-                    <label for="date">Pick a Date:</label><br>
-                    <input type="date" id="date" name="date" required><br><br>
-                    <input type="submit" value="Send">
-                    <input type="reset" value="Reset">
-                </form>
-            </div>
-        </div>
     </div>
     <button id="open-popup-button">
         Add Book
@@ -103,7 +54,36 @@
         </div>
     </div>
 
+
+    <!--modal and popup for reservation and more info-->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close">×</span>
+            <div id="modalContent">
+
+                <!-- Enlarged book content will be dynamically added here -->
+
+            </div>
+        </div>
+    </div>
+    <div id="reservationPopup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close" id="closePopup">×</span>
+            <h2>Reservation Form</h2>
+            <form id="reservationForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="phone">Phone:</label><br>
+                <input type="tel" id="phone" name="phone" required><br>
+                <label for="date">Pick a Date:</label><br>
+                <input type="date" id="date" name="date" required><br><br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 
 </html>

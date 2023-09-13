@@ -21,6 +21,7 @@
         margin-bottom: 10px;
     }
 
+
     /* Updated CSS for larger screens */
     .book.book {
         padding: 0.5rem;
@@ -248,7 +249,7 @@ h1 {
 }
 
 .book img {
-    max-width: 30%;
+    max-width: 10%;
     height: auto;
     padding: 1rem;
 }
@@ -282,8 +283,9 @@ h1 {
 
 .book .book-description {
     position: absolute;
-    bottom: 3rem;
+    bottom: 2rem;
     right: 2rem;
+    max-width: 50%; /* Adjust the maximum width as needed */
 }
 
 .book .book-footer {

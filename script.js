@@ -26,140 +26,6 @@ function handleFilterClick(category) {
         }
     });
 }
-
-// Prevent the form from submitting and reloading the page
-document.getElementById("filterForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-});
-//Modal enlarged book
-// Get references to the modal and close button
-const modal = document.getElementById("bookModal");
-const closeModal = document.querySelector(".close"); // Changed the selector to match the close button
-
-// Get references to the books
-const books = document.querySelectorAll(".book");
-
-// Get a reference to the modal content
-const modalContent = document.getElementById("modalContent");
-
-// Get a reference to the reservation popup
-const reservationPopup = document.getElementById("reservationPopup");
-const closePopup = document.querySelector(".popup-close");
-
-// Function to open the modal
-function openModal() {
-    modal.style.display = "block";
-}
-
-// Function to close the modal
-function closeModalFunction() {
-    modal.style.display = "none";
-    // Clear the cloned book content
-    modalContent.innerHTML = "";
-}
-
-// Function to close the cloned book within the modal
-function closeClonedBook() {
-    closeModalFunction();
-}
-
-// Function to open the reservation popup
-function openReservationPopup() {
-    reservationPopup.style.display = "block";
-}
-
-// Function to close the reservation popup
-function closeReservationPopup() {
-    reservationPopup.style.display = "none";
-}
-
-// Attach click event listeners to each book
-books.forEach((book) => {
-    book.addEventListener("click", function () {
-        // Clone the clicked book square
-        const clonedBook = this.cloneNode(true);
-
-        // Remove the click event listener from the cloned book
-        clonedBook.removeEventListener("click", null);
-
-        // Set the class of the cloned book to "enlarged-book" for styling
-        clonedBook.classList.add("enlarged-book");
-
-        // Remove the "More info" paragraph from the cloned book
-        const moreInfo = clonedBook.querySelector(".book-footer");
-        if (moreInfo) {
-            moreInfo.remove();
-        }
-
-        // Add a "Read More" button to the cloned book
-        const reservationButton = document.createElement("button");
-        reservationButton.textContent = "Reservation";
-        reservationButton.classList.add("reservation-button");
-        reservationButton.addEventListener("click", function () {
-            // Open the reservation popup when the "Read More" button is clicked
-            openReservationPopup();
-        });
-        clonedBook.appendChild(reservationButton);
-
-        // Remove transition and transform properties
-        clonedBook.style.transition = "none";
-        clonedBook.style.transform = "none";
-
-        // Append the cloned book to the modal content
-        modalContent.innerHTML = "";
-        modalContent.appendChild(clonedBook);
-
-        // Open the modal
-        openModal();
-    });
-});
-
-// Close the modal when the close button is clicked
-closeModal.addEventListener("click", closeModalFunction);
-
-// Close the cloned book within the modal when the user clicks outside of it
-window.addEventListener("click", function (event) {
-    if (event.target === modalContent) {
-        closeModalFunction();
-    }
-});
-
-// Close the reservation popup when the close button is clicked
-closePopup.addEventListener("click", closeReservationPopup);
-
-
-// Function to open the reservation popup
-function openReservationPopup() {
-    // Display the reservation popup
-    reservationPopup.style.display = "block";
-}
-
-
-// Get all the star elements
-///////
-var stars = document.querySelectorAll('.star');
-
-// Add a click event listener to each star
-stars.forEach(function (star) {
-    star.addEventListener('click', function () {
-        var rating = this.getAttribute('data-rating'); // Get the rating value
-
-        // Set the rating for this book
-        var bookDetails = this.closest('.book').querySelector('.book-details');
-        bookDetails.querySelector('p:nth-child(4)').textContent = 'Rating: ' + '★'.repeat(rating) + '☆'.repeat(5 - rating);
-
-        // Set the rating value as a data attribute for the book
-        bookDetails.querySelector('.rating').setAttribute('data-rating', rating);
-
-        // Update the rating for the other stars
-        stars.forEach(function (s) {
-            var sRating = s.getAttribute('data-rating');
-            s.textContent = sRating <= rating ? '★' : '☆';
-        });
-    });
-});
-
-
 function filterFunction() {
     // Get the search input value
     var input = document.querySelector('.search');
@@ -184,6 +50,20 @@ function filterFunction() {
         }
     }
 }
+// Prevent the form from submitting and reloading the page
+document.getElementById("filterForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+});
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const dateInput = document.getElementById("date");
 
 // Get today's date in the format YYYY-MM-DD
@@ -201,29 +81,6 @@ dateInput.addEventListener("input", function () {
         dateInput.setCustomValidity("");
     }
 });
-// Function to close the reservation popup when the "Escape" key is pressed
-function closeReservationPopupOnEscape(event) {
-    if (event.key === "Escape") {
-        const reservationPopup = document.getElementById("reservationPopup");
-        reservationPopup.style.display = "none";
-    }
-}
-
-// Function to close the book modal when the "Escape" key is pressed
-function closeBookModalOnEscape(event) {
-    if (event.key === "Escape") {
-        const bookModal = document.getElementById("bookModal");
-        bookModal.style.display = "none";
-    }
-}
-
-// Add event listeners to close popups on "Escape" key press
-document.addEventListener("keydown", closeReservationPopupOnEscape);
-document.addEventListener("keydown", closeBookModalOnEscape);
-
-
-
-
 
 function changeCSS() {
     const linkElement = document.getElementById('css-link');
@@ -309,9 +166,15 @@ function addBook(title, author, state, description) {
     const bookInfo = document.createElement("div");
     bookInfo.className = "book-info";
 
-    // Create the book image (You can add an image source here)
     const bookImage = document.createElement("img");
-    bookImage.alt = "IMG not found";
+    bookImage.alt = "Book Cover Image";
+
+    // Check if there is an image available, and if not, set a default image source
+    if (bookImage.imageLinks && bookImage.imageLinks.thumbnail) {
+        bookImage.src = bookImage.imageLinks.thumbnail;
+    } else {
+        bookImage.src = "cover.jpg"; // Use a default image source (cover.jpg)
+    }
 
     // Create the book details section
     const bookDetails = document.createElement("div");
@@ -347,10 +210,10 @@ function addBook(title, author, state, description) {
     const maxCharacters = 350; // Change this value to your desired character limit
     const descriptionText = description || "No description available";
     bookDescriptionP1.textContent = descriptionText.length > maxCharacters
-      ? descriptionText.slice(0, maxCharacters) + "..."
-      : descriptionText;
+        ? descriptionText.slice(0, maxCharacters) + "..."
+        : descriptionText;
     const bookDescriptionP2 = document.createElement("p");
-    
+
 
     // Append description paragraphs to the book description section
     bookDescription.appendChild(bookDescriptionP1);
@@ -415,3 +278,71 @@ document.getElementById("add-book-button").addEventListener("click", function ()
         alert("Please enter a valid ISBN.");
     }
 });
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function openModalForBook(bookElement) {
+    const modalContent = document.getElementById("modalContent");
+    
+    // Clone the clicked book square
+    const clonedBook = bookElement.cloneNode(true);
+
+    // Remove the "More info" paragraph from the cloned book
+    const moreInfo = clonedBook.querySelector(".book-footer");
+    if (moreInfo) {
+        moreInfo.remove();
+    }
+
+    // Add a "Read More" button to the cloned book
+    const reservationButton = document.createElement("button");
+    reservationButton.textContent = "Reservation";
+    reservationButton.classList.add("reservation-button");
+    reservationButton.addEventListener("click", function () {
+        // Open the reservation popup when the "Reservation" button is clicked
+        openReservationPopup();
+    });
+    clonedBook.appendChild(reservationButton);
+
+    // Remove transition and transform properties
+    clonedBook.style.transition = "none";
+    clonedBook.style.transform = "none";
+
+    // Clear the modal content
+    modalContent.innerHTML = "";
+
+    // Append the cloned book to the modal content
+    modalContent.appendChild(clonedBook);
+
+    // Open the modal
+    openModal();
+}
+
+// Attach click event listeners to each book
+const books = document.querySelectorAll(".book");
+books.forEach((book) => {
+    book.addEventListener("click", function () {
+        // Open the modal for the clicked book
+        openModalForBook(this);
+    });
+});
+// Function to close the modal for an enlarged book
+function closeModalForBook() {
+    // Close the modal
+    closeModalFunction();
+}
+
+// Function to open the modal
+function openModal() {
+    const modal = document.getElementById("bookModal");
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById("bookModal");
+    modal.style.display = "none";
+}
+
+// Close the modal when the close button is clicked
+const closeModal = document.querySelector(".close");
+closeModal.addEventListener("click", closeModalForBook);

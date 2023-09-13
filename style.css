@@ -82,7 +82,7 @@ h1 {
     position: relative;
 }
 .book img {
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
     margin-bottom: 1rem;
     padding-right: 1rem;
