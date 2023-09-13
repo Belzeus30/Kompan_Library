@@ -327,8 +327,8 @@ books.forEach((book) => {
 });
 // Function to close the modal for an enlarged book
 function closeModalForBook() {
-    // Close the modal
-    closeModalFunction();
+    const modal = document.getElementById("bookModal");
+    modal.style.display = "none";
 }
 
 // Function to open the modal
@@ -338,10 +338,7 @@ function openModal() {
 }
 
 // Function to close the modal
-function closeModal() {
-    const modal = document.getElementById("bookModal");
-    modal.style.display = "none";
-}
+
 
 // Close the modal when the close button is clicked
 const closeModal = document.querySelector(".close");
