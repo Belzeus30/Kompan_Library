@@ -141,7 +141,7 @@ function imgToggle() {
 }
 
 document.getElementById("change-css-button").addEventListener("click", imgToggle);
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function to open the popup
 function openPopup() {
     const popup = document.getElementById("isbn-popup");
@@ -157,7 +157,7 @@ function closeIsbnPopup() {
 // Function to add a book by ISBN
 
 // Function to create a new book element and add it to the container
-function addBook(title, author, state, description) {
+function addBook(title, author, state, description, imageUrl) {
     // Create a new book element
     const bookElement = document.createElement("div");
     bookElement.className = "book";
@@ -167,14 +167,11 @@ function addBook(title, author, state, description) {
     bookInfo.className = "book-info";
 
     const bookImage = document.createElement("img");
+    bookImage.src= imageUrl;
     bookImage.alt = "Book Cover Image";
 
-    // Check if there is an image available, and if not, set a default image source
-    if (bookImage.imageLinks && bookImage.imageLinks.thumbnail) {
-        bookImage.src = bookImage.imageLinks.thumbnail;
-    } else {
-        bookImage.src = "cover.jpg"; // Use a default image source (cover.jpg)
-    }
+
+  
 
     // Create the book details section
     const bookDetails = document.createElement("div");
@@ -237,8 +234,7 @@ function addBook(title, author, state, description) {
     bookContainer.appendChild(bookElement);
 }
 
-// Function to fetch book data from Google Books API based on ISBN
-function fetchBookInfo(isbn) {
+function addBookWithImage(isbn, imageUrl) {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
         .then(response => response.json())
         .then(data => {
@@ -253,6 +249,32 @@ function fetchBookInfo(isbn) {
                     "State: Unknown",
                     book.description || "No description available"
                 );
+            } else {
+                // Handle the case where no book data was found for the given ISBN
+                alert("No book data found for the provided ISBN.");
+            }
+        })
+
+    // Call the addBook function with book details and the image URL
+    addBook(title, author, state, description, imageUrl);
+}
+// Function to fetch book data from Google Books API based on ISBN
+function fetchImageByISBN(isbn) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`)
+        .then(response => response.json())
+        .then(data => {
+            // Check if any book data was found
+            if (data.totalItems > 0) {
+                const book = data.items[0].volumeInfo; // Get the first book in the response
+
+                // Check if there is an image available, and if so, set it as the source
+                if (book.imageLinks && book.imageLinks.thumbnail) {
+                    const imageUrl = book.imageLinks.thumbnail;
+                    addBookWithImage(isbn, imageUrl);
+                } else {
+                    // Use a default image source if no image is available
+                    addBookWithImage(isbn, "cover.jpg");
+                }
             } else {
                 // Handle the case where no book data was found for the given ISBN
                 alert("No book data found for the provided ISBN.");
@@ -273,7 +295,7 @@ document.getElementById("add-book-button").addEventListener("click", function ()
 
     if (isbn.trim() !== "") {
         // Fetch book data based on ISBN
-        fetchBookInfo(isbn);
+        fetchImageByISBN(isbn);
     } else {
         alert("Please enter a valid ISBN.");
     }
@@ -281,16 +303,19 @@ document.getElementById("add-book-button").addEventListener("click", function ()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const books = document.querySelectorAll(".book");
+const modal = document.getElementById("bookModal"); // Get the modal element here
+
 books.forEach((book) => {
     book.addEventListener("click", function () {
         // Open the modal for the clicked book
         openModalForBook(this);
     });
 });
+
 function openModalForBook(book) {
-    const modalContent = document.getElementById("bookModal");
-    modal.style.display = "block";
-    
+    const modalContent = document.getElementById("bookModalContent"); // Get the modal content element
+    modal.style.display = "block"; // Set the display property of the modal
+
     // Clone the clicked book square
     const clonedBook = book.cloneNode(true);
 
@@ -319,17 +344,18 @@ function openModalForBook(book) {
 
     // Append the cloned book to the modal content
     modalContent.appendChild(clonedBook);
-
-    // Open the modal
-    openModalForBook();
 }
 
 // Function to close the modal for an enlarged book
 function closeModalForBook() {
-    const modal = document.getElementById("bookModal");
-    modal.style.display = "none";
+    modal.style.display = "none"; // Set the display property of the modal to "none"
 }
 
 // Close the modal when the close button is clicked
 const closeModal = document.querySelector(".close");
 closeModal.addEventListener("click", closeModalForBook);
+
+// Placeholder function for opening the reservation popup
+function openReservationPopup() {
+    // Implement your reservation popup logic here
+}
