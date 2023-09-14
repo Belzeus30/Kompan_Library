@@ -98,7 +98,8 @@
         display: block;
         margin: .5rem;
     }
-    .enlarged-book .book-details{
+
+    .enlarged-book .book-details {
         padding-top: 1rem;
     }
 
@@ -290,7 +291,8 @@ h1 {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    max-width: 50%; /* Adjust the maximum width as needed */
+    max-width: 50%;
+    /* Adjust the maximum width as needed */
 }
 
 .enlarged-book .book-description p {

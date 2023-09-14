@@ -157,7 +157,7 @@ function closeIsbnPopup() {
 // Function to add a book by ISBN
 
 // Function to create a new book element and add it to the container
-function addBook(title, author, state, description,imageLinks,starRating) {
+function addBook(title, author, state, description, imageLinks, starRating) {
     // Create a new book element
     const bookElement = document.createElement("div");
     bookElement.className = "book";
@@ -191,23 +191,29 @@ function addBook(title, author, state, description,imageLinks,starRating) {
     const rating = document.createElement("div");
     rating.className = "rating";
 
-    
-    for (let i = 1; i <= 5; i++) {
-        const star = document.createElement("span");
-        star.className = "star";
-        star.dataset.rating = i;
-    
-        // Determine the class for each star based on the starRating value
-        if (i <= Math.floor(starRating)) {
-            star.textContent = "★";
-        } else if (i === Math.ceil(starRating) && starRating % 1 !== 0) {
-            star.textContent = "✬";
-        } else {
-            star.textContent = "☆";
+
+    if (typeof starRating === 'number' && !isNaN(starRating)) {
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement("span");
+            star.className = "star";
+            star.dataset.rating = i;
+
+            // Determine the class for each star based on the starRating value
+            if (i <= Math.floor(starRating)) {
+                star.textContent = "★";
+            } else if (i === Math.ceil(starRating) && starRating % 1 !== 0) {
+                star.textContent = "\uF587"; // Half-filled star with Unicode value U+F587
+            } else {
+                star.textContent = "☆";
+            }
+
+            rating.appendChild(star);
         }
-    
-        
-        rating.appendChild(star);
+    } else {
+        // If there is no rating available, display "No rating available" text
+        const noRatingText = document.createElement("span");
+        noRatingText.textContent = "No rating available";
+        rating.appendChild(noRatingText);
     }
 
     // Append elements to the book details section
@@ -261,13 +267,13 @@ function fetchBookInfo(isbn) {
                 const imageLinks = book.imageLinks || {};
                 const starRating = book.averageRating || {};
                 // Call the addBook function with book details
-                addBook(    
+                addBook(
                     book.title || "Title not available",
                     (book.authors && book.authors.join(", ")) || "Author not available",
-                    "State: Unknown",
+                    "Unknown",
                     book.description || "No description available",
                     imageLinks,
-                    starRating
+                    starRating || "No rating"
                 );
             } else {
                 // Handle the case where no book data was found for the given ISBN
@@ -304,7 +310,7 @@ const bookContainer = document.querySelector(".bookgrid");
 bookContainer.addEventListener("click", function (event) {
     // Find the closest parent element with the class "book"
     const bookElement = event.target.closest(".book");
-    
+
     // Check if a ".book" element was found
     if (bookElement) {
         const bookId = bookElement.id;
