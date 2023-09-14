@@ -32,9 +32,8 @@
     }
 
     .book img {
-        max-width: 45% !important;
+        max-width: 50% !important;
         padding: 0.5rem !important;
-        max-height: fit-content;
     }
 
     .book .book-info {
@@ -410,7 +409,7 @@ h1 {
     right: 10px;
     font-size: 40px;
     cursor: pointer;
-    color: black;
+    color: white;
     z-index: 2;
 }
 
