@@ -74,7 +74,7 @@
         max-width: 100% !important;
         max-height: 80% !important;
         width: 22rem !important;
-        height: 26rem !important;
+        height: 24rem !important;
     }
 
     .enlarged-book .book-info {
@@ -87,18 +87,19 @@
     .enlarged-book .book-info p {
         margin-bottom: 1rem;
     }
-    .enlarged-book .book-description p {
-        padding-top: 1rem;
-    }
 
     .enlarged-book .book-info img {
-        max-width: 100%;
+        width: 40%;
         height: auto;
+        padding-top: 1.5rem;
     }
 
     .enlarged-book .book-description {
         display: block;
-        margin: 1rem;
+        margin: .5rem;
+    }
+    .enlarged-book .book-details{
+        padding-top: 1rem;
     }
 
     .popup-content {

@@ -157,7 +157,7 @@ function closeIsbnPopup() {
 // Function to add a book by ISBN
 
 // Function to create a new book element and add it to the container
-function addBook(title, author, state, description) {
+function addBook(title, author, state, description,imageLinks) {
     // Create a new book element
     const bookElement = document.createElement("div");
     bookElement.className = "book";
@@ -171,8 +171,8 @@ function addBook(title, author, state, description) {
     bookImage.alt = "Book Cover Image";
 
     // Check if there is an image available, and if not, set a default image source
-    if (bookImage.imageLinks && bookImage.imageLinks.thumbnail) {
-        bookImage.src = bookImage.imageLinks.thumbnail;
+    if (imageLinks && imageLinks.thumbnail) {
+        bookImage.src = imageLinks.thumbnail;
     } else {
         bookImage.src = "cover.jpg"; // Use a default image source (cover.jpg)
     }
@@ -246,13 +246,13 @@ function fetchBookInfo(isbn) {
             // Check if any book data was found
             if (data.totalItems > 0) {
                 const book = data.items[0].volumeInfo; // Get the first book in the response
-
+                const imageLinks = book.imageLinks || {};
                 // Call the addBook function with book details
-                addBook(
+                addBook(    
                     book.title || "Title not available",
                     (book.authors && book.authors.join(", ")) || "Author not available",
                     "State: Unknown",
-                    book.description || "No description available"
+                    book.description || "No description available",imageLinks
                 );
             } else {
                 // Handle the case where no book data was found for the given ISBN
