@@ -161,6 +161,7 @@ function addBook(title, author, state, description) {
     // Create a new book element
     const bookElement = document.createElement("div");
     bookElement.className = "book";
+    bookElement.id = "book-" + Math.random().toString(36).substring(7); // Generate a random id
 
     // Create the book info section
     const bookInfo = document.createElement("div");
@@ -207,7 +208,7 @@ function addBook(title, author, state, description) {
     const bookDescription = document.createElement("div");
     bookDescription.className = "book-description";
     const bookDescriptionP1 = document.createElement("p");
-    const maxCharacters = 350; // Change this value to your desired character limit
+    const maxCharacters = 150; // Change this value to your desired character limit
     const descriptionText = description || "No description available";
     bookDescriptionP1.textContent = descriptionText.length > maxCharacters
         ? descriptionText.slice(0, maxCharacters) + "..."
@@ -281,19 +282,50 @@ document.getElementById("add-book-button").addEventListener("click", function ()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function to open the modal for a book
-function openModalForBook(book) {
+// Attach click event listeners to each book
+const bookContainer = document.querySelector(".bookgrid");
+
+// Add a click event listener to the parent container
+bookContainer.addEventListener("click", function (event) {
+    // Find the closest parent element with the class "book"
+    const bookElement = event.target.closest(".book");
+    
+    // Check if a ".book" element was found
+    if (bookElement) {
+        const bookId = bookElement.id;
+        console.log("Clicked:", bookId);
+        openModalForBook(bookId);
+    }
+});
+function openModalForBook(bookId) {
+    console.log("Open modal for book with ID:", bookId);
+
+    const modal = document.getElementById("bookModal");
+    // Display the modal
+    modal.style.display = "block";
     const modalContent = document.getElementById("modalContent");
 
-    // Clone the clicked book square
-    const clonedBook = book.cloneNode(true);
+    // Fetch the clicked book element by its id
+    const book = document.getElementById(bookId);
+
+    // Create a new element with the class "enlarged-book"
+    const enlargedBook = document.createElement("div");
+    enlargedBook.className = "enlarged-book";
+
+    // Copy the content and attributes from the original book element to the new element
+    enlargedBook.innerHTML = book.innerHTML;
+    enlargedBook.id = book.id;
+
+    // Add the "enlarged-book" class to the new element
+    enlargedBook.classList.add("enlarged-book");
 
     // Remove the "More info" paragraph from the cloned book
-    const moreInfo = clonedBook.querySelector(".book-footer");
+    const moreInfo = enlargedBook.querySelector(".book-footer");
     if (moreInfo) {
         moreInfo.remove();
     }
 
-    // Add a "Read More" button to the cloned book
+    // Add a "Read More" button to the new element
     const reservationButton = document.createElement("button");
     reservationButton.textContent = "Reservation";
     reservationButton.classList.add("reservation-button");
@@ -301,48 +333,63 @@ function openModalForBook(book) {
         // Open the reservation popup when the "Reservation" button is clicked
         openReservationPopup();
     });
-    clonedBook.appendChild(reservationButton);
+    enlargedBook.appendChild(reservationButton);
+    const closeButton = document.createElement("span");
+    closeButton.textContent = "×";
+    closeButton.classList.add("close");
+    closeButton.addEventListener("click", closeModal);
+    enlargedBook.appendChild(closeButton);
 
     // Remove transition and transform properties
-    clonedBook.style.transition = "none";
-    clonedBook.style.transform = "none";
+    enlargedBook.style.transition = "none";
+    enlargedBook.style.transform = "none";
 
     // Clear the modal content
     modalContent.innerHTML = "";
 
-    // Append the cloned book to the modal content
-    modalContent.appendChild(clonedBook);
-
-    // Open the modal
-    openModal();
-}
-
-// Attach click event listeners to each book
-const books = document.querySelectorAll(".book");
-books.forEach((bookElement) => {
-    bookElement.addEventListener("click", function () {
-        // Open the modal for the clicked book
-        openModalForBook(bookElement);
-    }); 
-});
-
-// Function to close the modal for an enlarged book
-function closeModalForBook() {
-    const modal = document.getElementById("bookModal");
-    modal.style.display = "none";
-}
-
-// Function to open the modal
-function openModal() {
-    const modal = document.getElementById("bookModal");
-    modal.style.display = "block";
+    // Append the new enlarged book element to the modal content
+    modalContent.appendChild(enlargedBook);
 }
 
 // Function to open the reservation popup
 function openReservationPopup() {
-    // Implement your reservation popup logic here
+    // Assuming you have a reservation popup element with the id "reservation-popup"
+    const reservationPopup = document.getElementById("reservationPopup");
+
+    // Display the reservation popup
+    reservationPopup.style.display = "block";
 }
 
-// Close the modal when the close button is clicked
-const closeModal = document.querySelector(".close");
-closeModal.addEventListener("click", closeModalForBook);
+// Function to close the popup
+function closePopup() {
+    // Assuming you have a popup element with the id "isbn-popup"
+    const popup = document.getElementById("reservationPopup");
+    popup.style.display = "none";
+}
+// Event listener for closing the popup when the close button is clicked
+document.getElementById("closePopup").addEventListener("click", closePopup);
+// Function to handle the form submission
+function submitReservationForm(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Retrieve form data if needed
+    const form = document.getElementById("reservationForm");
+    const formData = new FormData(form);
+
+    // Process the form data or perform any desired actions here
+
+    // Close the reservation popup or take any other action
+    closeReservationPopup(); // Assuming you have a function to close the popup
+}
+// Function to close the modal
+function closeModal() {
+    // Assuming you have a modal element with the id "bookModal"
+    const modal = document.getElementById("bookModal");
+    modal.style.display = "none";
+}
+
+// Add an event listener to the close button
+const closeButton = document.querySelector(".close");
+if (closeButton) {
+    closeButton.addEventListener("click", closeModal);
+}

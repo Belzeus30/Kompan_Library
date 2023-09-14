@@ -186,7 +186,7 @@ h1 {
     max-width: 100%;
     max-height: 100%;
     width: 45rem;
-    height: 23rem;
+    height: 28rem;
     border: none;
     box-shadow: none;
     background-color: white;
@@ -213,6 +213,9 @@ h1 {
 /* Styles for the book details */
 .enlarged-book .book-details {
     flex: 1;
+}
+.enlarged-book .book-description p {
+    padding-top: 1.8rem;
 }
 .enlarged-book .book-info img {
     max-width: 200px;
@@ -241,7 +244,7 @@ h1 {
     right: 10px;
     font-size: 30px;
     cursor: pointer;
-    color: white;
+    color: black;
     z-index: 2;
 }
 .popup {
@@ -267,10 +270,10 @@ h1 {
 }
 .popup-close {
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 40px;
 }
 /* Style the submit button */
 label {
