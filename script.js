@@ -157,7 +157,7 @@ function closeIsbnPopup() {
 // Function to add a book by ISBN
 
 // Function to create a new book element and add it to the container
-function addBook(title, author, state, description,imageLinks) {
+function addBook(title, author, state, description,imageLinks,starRating) {
     // Create a new book element
     const bookElement = document.createElement("div");
     bookElement.className = "book";
@@ -190,11 +190,23 @@ function addBook(title, author, state, description,imageLinks) {
     // Create the rating section (You can add a star rating here)
     const rating = document.createElement("div");
     rating.className = "rating";
+
+    
     for (let i = 1; i <= 5; i++) {
         const star = document.createElement("span");
         star.className = "star";
         star.dataset.rating = i;
-        star.textContent = "☆";
+    
+        // Determine the class for each star based on the starRating value
+        if (i <= Math.floor(starRating)) {
+            star.textContent = "★";
+        } else if (i === Math.ceil(starRating) && starRating % 1 !== 0) {
+            star.textContent = "✬";
+        } else {
+            star.textContent = "☆";
+        }
+    
+        
         rating.appendChild(star);
     }
 
@@ -247,12 +259,15 @@ function fetchBookInfo(isbn) {
             if (data.totalItems > 0) {
                 const book = data.items[0].volumeInfo; // Get the first book in the response
                 const imageLinks = book.imageLinks || {};
+                const starRating = book.averageRating || {};
                 // Call the addBook function with book details
                 addBook(    
                     book.title || "Title not available",
                     (book.authors && book.authors.join(", ")) || "Author not available",
                     "State: Unknown",
-                    book.description || "No description available",imageLinks
+                    book.description || "No description available",
+                    imageLinks,
+                    starRating
                 );
             } else {
                 // Handle the case where no book data was found for the given ISBN
